@@ -629,71 +629,6 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
 .step-line i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green-2),var(--gold));transition:width 1.6s var(--ease)}
 
 /* ============================================================
-   THE CASE
-   ============================================================ */
-.case-band{background:linear-gradient(180deg,var(--paper) 0%,#fff 100%)}
-.case-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(30px,4.5vw,64px);align-items:start}
-@media(max-width:960px){.case-grid{grid-template-columns:1fr}}
-.case-copy p{color:var(--ink-2);margin:0 0 16px;font-size:15.8px;line-height:1.72;max-width:58ch}
-.case-copy p b{color:var(--ink);font-weight:650}
-.case-copy h2{max-width:22ch;text-wrap:balance}
-/* pull quote — a focal object, not an indented paragraph */
-.case-quote{
-  position:relative;margin:30px 0;padding:26px 28px 26px 30px;
-  background:linear-gradient(135deg,var(--green-050),rgba(251,244,222,.55));
-  border:1px solid var(--line);border-left:4px solid var(--gold);
-  border-radius:0 var(--r) var(--r) 0;
-  font-family:var(--head);font-weight:700;font-size:clamp(19px,1.8vw,23px);
-  line-height:1.32;letter-spacing:-.022em;color:var(--pine);
-}
-.case-quote::before{
-  content:"\201C";position:absolute;top:-6px;right:18px;
-  font-family:Georgia,serif;font-size:76px;line-height:1;color:var(--gold);opacity:.22;pointer-events:none;
-}
-/* figure gets a scrim + overlaid caption instead of a stacked line of grey text */
-.case-photo figcaption{
-  position:absolute;left:0;right:0;bottom:0;z-index:2;margin:0;
-  padding:34px 20px 14px;color:rgba(255,255,255,.9);font-size:12.2px;letter-spacing:.01em;
-  background:linear-gradient(180deg,transparent,rgba(6,43,26,.82));
-}
-.case-kicker{margin-top:26px!important;font-weight:500;color:var(--ink)!important}
-.case-reasons{list-style:none;margin:16px 0 22px;padding:0;display:grid;gap:9px}
-.case-reasons li{
-  display:flex;gap:14px;align-items:flex-start;padding:14px 16px;
-  background:var(--white);border:1px solid var(--line);border-left:3px solid var(--gold);
-  border-radius:0 var(--r) var(--r) 0;box-shadow:var(--sh-1);
-  transition:transform .3s var(--spring),box-shadow .3s,border-color .3s
-}
-.case-reasons li:hover{transform:translateX(5px);box-shadow:var(--sh-2);border-left-color:var(--green-2)}
-.case-reasons li>i{flex:none;width:32px;height:32px;border-radius:9px;display:grid;place-items:center;
-  background:var(--green-050);color:var(--green);font-size:13px;transition:background .3s,color .3s}
-.case-reasons li:hover>i{background:var(--green);color:#fff}
-.case-reasons b{display:block;font-family:var(--head);font-size:14.6px;font-weight:700;letter-spacing:-.015em;color:var(--ink);line-height:1.3}
-.case-reasons span{display:block;font-size:12.8px;color:var(--ink-3);margin-top:3px;line-height:1.45}
-.case-panel{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-2);overflow:hidden;position:sticky;top:96px}
-@media(max-width:960px){.case-panel{position:static}}
-.case-panel .cp-head{display:flex;justify-content:space-between;align-items:center;background:var(--pine);color:#fff;padding:15px 20px;font-family:var(--head);font-size:14px;letter-spacing:.02em}
-.case-panel .cp-head span{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-2);font-weight:600}
-.cp-rows{padding:6px 20px}
-.cp-row{display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid var(--paper-2);font-size:14.6px}
-.cp-row:last-child{border:0}
-.cp-row span{color:var(--ink-2)}
-.cp-row b{font-family:var(--head);font-weight:700;letter-spacing:-.01em}
-.cp-row b.g{color:var(--green-2)}
-.cp-row b.gold{color:var(--gold)}
-.chart{padding:8px 20px 20px}
-.chart h4{font-size:12px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);font-weight:600;margin:14px 0 14px}
-.bar-row{display:grid;grid-template-columns:64px 1fr 70px;align-items:center;gap:12px;margin-bottom:11px;font-size:13.4px}
-.bar-row span:first-child{color:var(--ink-2);font-weight:500}
-.bar-row .num{text-align:right;font-weight:600;color:var(--ink)}
-.bar{height:11px;background:var(--paper-2);border-radius:100px;overflow:hidden}
-.bar i{display:block;height:100%;width:0;border-radius:100px;background:linear-gradient(90deg,var(--green-2),var(--green));transition:width 1.3s var(--ease)}
-.bar-row:nth-child(2) .bar i{transition-delay:.08s}.bar-row:nth-child(3) .bar i{transition-delay:.16s}
-.bar-row:nth-child(4) .bar i{transition-delay:.24s}.bar-row:nth-child(5) .bar i{transition-delay:.32s}
-.bar-row:nth-child(6) .bar i{transition-delay:.4s}.bar-row:nth-child(7) .bar i{transition-delay:.48s}
-.cp-foot{padding:13px 20px;background:var(--paper);border-top:1px solid var(--line);font-size:12.2px;color:var(--ink-3)}
-
-/* ============================================================
    SECTORS
    ============================================================ */
 .sectors-band{background:var(--pine-2);color:#fff;position:relative;overflow:hidden}
@@ -721,6 +656,7 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
   background:radial-gradient(80% 70% at 50% 0%,rgba(227,194,88,.18),transparent 70%);
   transition:opacity .35s var(--ease)
 }
+.sector{cursor:default}
 .sector:hover{
   transform:translateY(-5px);border-color:rgba(255,255,255,.24);
   box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 16px 34px rgba(0,0,0,.32)
@@ -809,36 +745,59 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
 /* ============================================================
    PRINCIPLES
    ============================================================ */
-.prin-grid{display:grid;grid-template-columns:340px 1fr;gap:clamp(28px,4vw,56px);align-items:start}
-@media(max-width:960px){.prin-grid{grid-template-columns:1fr}}
-.gauge-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-2);padding:30px;text-align:center;position:sticky;top:110px}
-@media(max-width:960px){.gauge-card{position:static}}
-.gauge{--v:0;width:190px;height:190px;margin:6px auto 18px;border-radius:50%;background:conic-gradient(var(--gold) calc(var(--v)*1%),var(--paper-2) 0);display:grid;place-items:center;position:relative;transition:--v 1s}
-.gauge::before{content:"";position:absolute;inset:14px;border-radius:50%;background:#fff;box-shadow:inset 0 2px 8px rgba(12,24,17,.06)}
-.gauge .gv{position:relative;font-family:var(--head)}
-.gauge .gv b{display:flex;align-items:baseline;justify-content:center;gap:1px;font-size:52px;font-weight:800;letter-spacing:-.04em;line-height:1;color:var(--ink)}
-.gauge .gv b em{font-style:normal;font-size:.54em;font-weight:700;color:var(--ink-3);letter-spacing:-.02em;position:relative;top:-.06em;margin-left:2px}
-/* seven ticks = seven principles, so an empty ring still reads as "0 of 7" */
-.g-ticks{position:absolute;inset:0;border-radius:50%;z-index:1;
-  background:repeating-conic-gradient(from -90deg,transparent 0deg 49.43deg,rgba(255,255,255,.95) 49.43deg 51.43deg)}
-.gauge .gv>span{font-size:12.6px;color:var(--ink-3);font-weight:500}
-.gauge-card p{font-size:13.6px;color:var(--ink-2);margin:0 0 16px}
 .status-pill{display:inline-flex;align-items:center;gap:8px;background:var(--gold-050);border:1px solid var(--gold-2);color:#7a6110;font-size:12px;font-weight:600;letter-spacing:.06em;padding:7px 14px;border-radius:100px}
 .status-pill i{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
-.prin-list{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-@media(max-width:640px){.prin-list{grid-template-columns:1fr}}
-#principles{background:linear-gradient(180deg,var(--white) 0%,var(--paper) 30%,var(--paper) 70%,var(--white) 100%)}
-.prin{position:relative;display:flex;align-items:center;gap:15px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:17px 18px 17px 20px;box-shadow:var(--sh-1);overflow:hidden;transition:transform .3s var(--spring),box-shadow .3s,border-color .3s}
-.prin::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);opacity:.55;transition:opacity .3s,background .3s}
-.prin:hover::before{opacity:1;background:var(--green-2)}
-.prin:hover{transform:translateX(6px);border-color:var(--green-2);box-shadow:var(--sh-2)}
-.prin .ic{flex:none;width:42px;height:42px;border-radius:12px;background:var(--green-050);color:var(--green);display:grid;place-items:center;transition:all .35s var(--spring)}
-.prin:hover .ic{background:var(--green);color:#fff;transform:rotate(-6deg) scale(1.08)}
-.prin .ic svg{width:20px}
-.prin b{display:block;font-size:15px;font-weight:600;letter-spacing:-.01em}
-.prin>div>span{display:inline-flex;align-items:center;gap:6px;font-size:10.6px;color:#7a6110;background:var(--gold-050);border:1px solid rgba(192,143,43,.3);border-radius:100px;padding:3px 9px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-top:6px}
+.prin-status{
+  display:flex;flex-wrap:wrap;align-items:center;gap:clamp(18px,3vw,38px);
+  padding:20px clamp(20px,2.6vw,30px);margin-bottom:22px;
+  background:linear-gradient(150deg,var(--white),var(--paper));
+  border:1px solid var(--line);border-left:4px solid var(--gold);
+  border-radius:0 var(--r-lg) var(--r-lg) 0;box-shadow:var(--sh-1)
+}
+.ps-count{display:flex;align-items:baseline;gap:10px;flex:none}
+.ps-count b{font-family:var(--head);font-weight:800;font-size:clamp(30px,3.4vw,42px);letter-spacing:-.04em;line-height:1;color:var(--ink)}
+.ps-count b em{font-style:normal;font-size:.42em;font-weight:700;color:var(--ink-3);margin-left:5px}
+.ps-count>span{font-size:12.4px;color:var(--ink-3);letter-spacing:.02em}
+.ps-track{display:flex;gap:6px;flex:1;min-width:180px}
+.ps-track i{flex:1;height:6px;border-radius:100px;background:var(--paper-2);box-shadow:inset 0 1px 2px rgba(12,24,17,.06)}
+.ps-track i.on{background:linear-gradient(90deg,var(--green-2),var(--green))}
+
+.prin-list{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:1080px){.prin-list{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.prin-list{grid-template-columns:1fr}}
+.prin{
+  position:relative;display:flex;flex-direction:column;gap:14px;overflow:hidden;
+  background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:24px 22px;box-shadow:var(--sh-1);
+  transition:transform .35s var(--spring),box-shadow .35s var(--ease),border-color .3s
+}
+.prin::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-2));transform:scaleX(0);transform-origin:0 50%;
+  transition:transform .5s var(--ease)}
+.prin::after{content:"";position:absolute;inset:0;z-index:0;opacity:0;
+  background:radial-gradient(120% 90% at 0% 0%,var(--green-050),transparent 60%);transition:opacity .4s}
+.prin>*{position:relative;z-index:1}
+.prin:hover{transform:translateY(-6px);box-shadow:var(--sh-2);border-color:var(--line-2)}
+.prin:hover::before{transform:none}
+.prin:hover::after{opacity:1}
+.prin .ic{
+  width:50px;height:50px;border-radius:15px;display:grid;place-items:center;flex:none;
+  background:linear-gradient(150deg,var(--green-050),rgba(234,244,238,.4));
+  color:var(--green);border:1px solid rgba(11,81,50,.10);
+  transition:background .35s,color .35s,transform .45s var(--spring),box-shadow .35s
+}
+.prin .ic i{font-size:20px;line-height:1}
+.prin:hover .ic{background:var(--green);color:#fff;border-color:transparent;
+  transform:rotate(-6deg) scale(1.06);box-shadow:0 8px 20px rgba(11,81,50,.26)}
+.prin b{display:block;font-family:var(--head);font-size:16.4px;font-weight:700;letter-spacing:-.02em;line-height:1.25;color:var(--ink)}
+.prin>div>span{
+  display:inline-flex;align-items:center;gap:7px;margin-top:9px;
+  font-size:10.4px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:#7a6110;background:var(--gold-050);border:1px solid rgba(224,168,46,.32);
+  border-radius:100px;padding:4px 10px
+}
 .prin>div>span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);flex:none}
-.prin-note{grid-column:1/-1;background:var(--paper);border:1px dashed var(--line-2);border-radius:var(--r);padding:16px 20px;font-size:13.8px;color:var(--ink-2)}
+.prin-foot{margin:22px auto 0;max-width:76ch;text-align:center;font-size:13.6px;color:var(--ink-3);line-height:1.6}
 
 /* ============================================================
    COMPARE
@@ -884,6 +843,10 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
   border-radius:100px;padding:8px 15px;color:var(--ink-3);font-size:13px;font-weight:600;
   transition:background .25s,border-color .25s,color .25s}
 .commit-bar button:hover{background:var(--paper-2);border-color:var(--line-2);color:var(--ink)}
+.commit-go{display:none;padding:11px 20px;border-radius:10px;font-size:14px;order:2}
+.commit-bar button{order:3}
+.commit-bar.active .commit-go{display:inline-flex;animation:goIn .4s var(--spring) both}
+@keyframes goIn{from{opacity:0;transform:translateY(6px) scale(.96)}to{opacity:1;transform:none}}
 
 .compare-band{background:var(--paper)}
 .vs-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:940px;margin:0 auto}
@@ -1168,10 +1131,6 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
    REAL PHOTOGRAPHY LAYERS
    ============================================================ */
 
-.case-photo{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-2);margin:26px 0 4px;aspect-ratio:16/8.5}
-.case-photo img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
-.case-photo:hover img{transform:scale(1.05)}
-.case-photo figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 18px 12px;background:linear-gradient(transparent,rgba(6,43,26,.85));color:#fff;font-size:12.4px;letter-spacing:.04em}
 
 .voices-band .bg-photo{position:absolute;inset:0;background-image:url('assets/voices-people.jpg');background-size:cover;background-position:center 40%;opacity:.16;mix-blend-mode:luminosity;pointer-events:none}
 .voices-band .wrap{position:relative;z-index:2}
@@ -1288,6 +1247,7 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
     <div class="commit-grid" id="commitGrid"></div>
     <div class="commit-bar rv" id="commitBar">
       <div class="msg" id="commitMsg">No commitment types selected yet.</div>
+      <a class="btn btn-green commit-go" id="commitGo" href="#pledge">Start pledge<span class="arr">→</span><span class="shine"></span></a>
       <button type="button" id="commitClear">Clear selection</button>
     </div>
   </div>
@@ -1299,12 +1259,9 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
     <div class="sec-head rv">
       <p class="eyebrow on-dark">Invest in sectors that build Pakistan</p>
       <h2>Investment categories</h2>
-      <p class="lead on-dark">Select the sectors you would invest in — your choices carry down to the pledge form. Amounts shown are totals already committed by other registrants.</p>
+      <p class="lead on-dark">The sectors overseas Pakistanis are committing to. Amounts shown are totals already recorded by other registrants — you choose your own in the registration form below.</p>
     </div>
-    <div class="sector-grid" id="sectorGrid"></div>
-    <div class="sector-bar rv" id="sectorBar">
-      <div class="msg" id="sectorMsg">No sectors selected.</div>
-      <button type="button" id="sectorClear">Clear selection</button>
+    <div class="sector-grid" id="sectorGrid"></div>      <button type="button" id="sectorClear">Clear selection</button>
     </div>
   </div>
 </section>
@@ -1330,45 +1287,6 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
   </div>
 </section>
 
-<!-- THE CASE -->
-<section class="block case-band">
-  <div class="wrap case-grid">
-    <div class="case-copy rv-l">
-      <p class="eyebrow">The case</p>
-      <h2>The capital is not missing.<br>It is invested elsewhere.</h2>
-      <p style="margin-top:18px">Pakistan borrows abroad to remain solvent. At the same time, Pakistanis living abroad hold the capital, the companies, and the professional expertise that would make much of that borrowing unnecessary — and they deploy it in economies that are not Pakistan's.</p>
-      <div class="case-quote">This has never been a funding problem. It is a governance problem.</div>
-      <p class="case-kicker">Capital does not avoid Pakistan because returns are poor. It avoids three things:</p>
-      <ul class="case-reasons">
-        <li><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i><div><b>Rules that change without notice</b><span>Policy reversals no investor can price</span></div></li>
-        <li><i class="fa-solid fa-gavel" aria-hidden="true"></i><div><b>Contracts that stall for years</b><span>Enforcement measured in court calendars</span></div></li>
-        <li><i class="fa-solid fa-hourglass-half" aria-hidden="true"></i><div><b>A two-year political cycle</b><span>Against investments that need ten</span></div></li>
-      </ul>
-      <p>The registry answers each directly — recording <b>publicly and in writing</b> how much capital is waiting, which sectors it is for, and exactly what must be true before it moves.</p>
-      <figure class="case-photo rv">
-        <img src="assets/case-islamabad.jpg" alt="Faisal Mosque and Islamabad seen from the Margalla Hills" loading="lazy" onerror="this.closest('figure').style.display='none'">
-        <figcaption>Islamabad from the Margalla Hills — the capital that borrows abroad to stay solvent</figcaption>
-      </figure>
-    </div>
-    <div class="rv-r">
-      <div class="case-panel">
-        <div class="cp-head">Diaspora capital — position<span>Live registry</span></div>
-        <div class="cp-rows">
-          <div class="cp-row"><span>Remitted to Pakistan, 2024</span><b>$30.0B+</b></div>
-          <div class="cp-row"><span>Share directed to investment</span><b style="color:var(--red)">Minimal</b></div>
-          <div class="cp-row"><span>Pledged through this registry</span><b class="g num">$2.54B</b></div>
-          <div class="cp-row"><span>Five-year registry target</span><b class="gold num">$10.00B</b></div>
-          <div class="cp-row"><span>Conditions currently met</span><b>0 of 7</b></div>
-        </div>
-        <div class="chart" id="countryChart">
-          <h4>Pledged by country of residence · USD</h4>
-        </div>
-        <div class="cp-foot">Remittance figures from published State Bank of Pakistan reporting. Registry figures are self-reported and not independently audited.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- PRINCIPLES -->
 <section class="block" id="principles">
   <div class="wrap">
@@ -1377,14 +1295,13 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
       <h2>Our commitment to Pakistan is connected to seven principles</h2>
       <p class="lead">These are not sequential steps. They hold simultaneously, or the commitment stays where it is. Current status is published here and updated in public.</p>
     </div>
-    <div class="prin-grid">
-      <div class="gauge-card rv-l">
-        <div class="gauge" id="gauge"><span class="g-ticks" aria-hidden="true"></span><div class="gv"><b><span id="gaugeNum">0</span><em>/7</em></b><span>principles met</span></div></div>
-        <p>All seven must hold at once. Until then, every pledge stays exactly where it is.</p>
-        <span class="status-pill"><i></i>Status: conditions not yet met</span>
-      </div>
-      <div class="prin-list" id="prinList"></div>
+    <div class="prin-status rv">
+      <div class="ps-count"><b class="num"><span id="gaugeNum">0</span><em>of 7</em></b><span>conditions met</span></div>
+      <div class="ps-track" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <span class="status-pill"><i></i>Not yet met</span>
     </div>
+    <div class="prin-list" id="prinList"></div>
+    <p class="prin-foot rv">All seven must hold at once. Until then, every pledge stays exactly where it is — no single institution decides, and the registry publishes its assessment with sources.</p>
   </div>
 </section>
 
@@ -1824,16 +1741,6 @@ function money(n){return '$'+fmt(n);}
   });
 })();
 
-/* ---------- COUNTRY CHART ---------- */
-(function(){
-  var c=$('#countryChart'); var max=CHART[0][1];
-  CHART.forEach(function(r){
-    var d=document.createElement('div');
-    d.className='bar-row';
-    d.innerHTML='<span>'+r[0]+'</span><span class="bar"><i data-w="'+(r[1]/max*100)+'"></i></span><span class="num">$'+r[1]+'M</span>';
-    c.appendChild(d);
-  });
-})();
 
 /* ---------- SECTORS (interactive) ---------- */
 var selected=[];
@@ -1879,8 +1786,10 @@ function toggleCommit(n){
 
 function renderSectorState(){
   var bar=$('#sectorBar'), msg=$('#sectorMsg');
-  if(!selected.length){msg.innerHTML='No sectors selected.';bar.classList.remove('active');}
-  else{msg.innerHTML='<b>'+selected.length+'</b> sector'+(selected.length>1?'s':'')+' selected \u2014 <b>'+selected.join(', ')+'</b>. They\u2019re waiting for you in the pledge form below.';bar.classList.add('active');}
+  if(bar&&msg){
+    if(!selected.length){msg.innerHTML='No sectors selected.';bar.classList.remove('active');}
+    else{msg.innerHTML='<b>'+selected.length+'</b> selected.';bar.classList.add('active');}
+  }
   var chips=$('#sectorChips'); chips.innerHTML='';
   selected.forEach(function(n){
     var c=document.createElement('span'); c.className='chip';
@@ -1888,11 +1797,7 @@ function renderSectorState(){
     c.querySelector('button').addEventListener('click',function(){toggleSector(n);});
     chips.appendChild(c);
   });
-  $$('.sector').forEach(function(el){
-    var on=selected.indexOf(el.getAttribute('data-n'))>-1;
-    el.classList.toggle('sel',on);
-    el.setAttribute('aria-pressed',String(on));
-  });
+
   var sf=$('#sectorField');
   if(selected.length){sf.classList.remove('bad');sf.classList.add('good');}else{sf.classList.remove('good');}
   updatePreview(); updateProgress();
@@ -1907,19 +1812,16 @@ function toggleSector(n){
   var max=SECTORS.reduce(function(m,s){return Math.max(m,parseFloat(s.a)||0);},0)||1;
   SECTORS.forEach(function(s,i){
     var pct=((parseFloat(s.a)||0)/max*100).toFixed(1);
-    var b=document.createElement('button');
-    b.type='button'; b.className='sector rv-s'; b.setAttribute('data-d',String((i%5)+1));
-    b.setAttribute('data-n',s.n); b.setAttribute('aria-pressed','false');
-    b.innerHTML='<span class="tick" aria-hidden="true">'+TICK+'</span>'
-      +'<span class="ic" aria-hidden="true">'+s.i+'</span>'
+    var b=document.createElement('div');
+    b.className='sector rv-s'; b.setAttribute('data-d',String((i%5)+1));
+    b.setAttribute('data-n',s.n);
+    b.innerHTML='<span class="ic" aria-hidden="true">'+s.i+'</span>'
       +'<b class="s-name">'+s.n+'</b>'
       +'<span class="bar" aria-hidden="true"><i data-w="'+pct+'"></i></span>'
       +'<span class="s-foot"><span class="s-lab">Pledged so far</span>'
       +'<span class="s-amt num">$'+s.a+'</span></span>';
-    b.addEventListener('click',function(){toggleSector(s.n);});
     g.appendChild(b);
   });
-  $('#sectorClear').addEventListener('click',function(){selected=[];renderSectorState();});
   var add=$('#fSectorAdd');
   SECTORS.forEach(function(s){var o=document.createElement('option');o.value=s.n;o.textContent=s.n;add.appendChild(o);});
   add.addEventListener('change',function(){
