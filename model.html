@@ -127,14 +127,30 @@ nav.main .wrap{display:flex;align-items:center;gap:26px;padding-top:14px;padding
 .nav-links a::after{content:"";position:absolute;left:12px;right:12px;bottom:3px;height:2px;background:var(--gold);border-radius:2px;transform:scaleX(0);transform-origin:0 50%;transition:transform .3s var(--ease)}
 .nav-links a:hover::after{transform:scaleX(1)}
 .burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:42px;height:42px;place-items:center}
-@media(max-width:960px){.nav-links{display:none}.burger{display:grid}.topbar .right span:nth-child(2){display:none}}
+@media(max-width:960px){.nav-links{display:none}.burger{display:grid}.topbar .right span:first-child{display:none}}
+@media(max-width:820px){.topbar .right>span{display:none}}
+
+/* the site-wide link set is longer than one bar can hold at ease:
+   tighten above 1200px, hand over to the menu below it */
+@media(min-width:1201px){
+  nav.main .wrap{gap:14px}
+  nav.main .brand small{display:none}
+  /* wrapping is the safety net: links drop to a second row rather than
+     pushing the call to action out of the bar */
+  .nav-links{gap:2px;row-gap:4px;flex-wrap:wrap;justify-content:flex-end;min-width:0;max-width:100%}
+  .nav-links a{font-size:12.9px;padding:8px 6px;white-space:nowrap}
+  .nav-links a::after{left:6px;right:6px}
+  nav.main .wrap>.btn{padding:11px 16px;font-size:13.8px;white-space:nowrap;flex:none}
+}
+@media(max-width:1200px){.nav-links{display:none}.burger{display:grid}}
+
 .mobile-menu{display:none;border-top:1px solid var(--line);background:#fff}
 .mobile-menu.open{display:block;animation:menuDrop .3s var(--ease)}
 @keyframes menuDrop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 .mobile-menu a{display:block;padding:13px var(--pad);text-decoration:none;font-weight:500;border-bottom:1px solid var(--paper-2)}
 
 /* current page marker */
-.nav-links a[aria-current="page"]{color:var(--green);background:var(--green-050)}
+.nav-links a[aria-current="page"]{color:var(--green);font-weight:600}
 .nav-links a[aria-current="page"]::after{transform:scaleX(1)}
 .mobile-menu a[aria-current="page"]{color:var(--green);font-weight:700;background:var(--green-050)}
 
@@ -455,6 +471,7 @@ nav.main .wrap{display:flex;align-items:center;gap:26px;padding-top:14px;padding
   font-variant-numeric:tabular-nums
 }
 .stat b>span{display:inline}
+.stat b.sm{font-size:clamp(18px,1.6vw,21px);letter-spacing:-.028em}
 .stat b small{
   display:inline-block;font-size:.4em;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
   color:var(--ink-3);white-space:nowrap;vertical-align:.28em;margin-left:.2em
@@ -699,6 +716,7 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
 .p-shr{grid-area:shr;text-align:right;font-size:12.2px;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .path-row.lead-row .p-lab{font-weight:650;color:var(--ink)}
 .path-row.lead-row .bar i{background:linear-gradient(90deg,var(--pine),var(--green-2))}
+.pp-note{margin:16px 0 0;font-size:11.8px;line-height:1.5;color:var(--ink-3)}
 .path-total{
   display:grid;grid-template-columns:minmax(128px,1.05fr) 1.5fr 62px 50px;
   grid-template-areas:"lab bar amt shr";align-items:center;gap:14px;
@@ -907,12 +925,15 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
       <span><b>Pakistan<br>Diaspora Fund</b><small>Invest in Pakistan. Invest in Tomorrow.</small></span>
     </a>
     <div class="nav-links">
-      <a href="index.html#how">How it works</a>
-      <a href="index.html#commit">Commit</a>
-      <a href="index.html#sectors">Sectors</a>
       <a href="mission.html">Mission</a>
       <a href="model.html" aria-current="page">The Model</a>
-      <a href="network.html">Network</a>
+      <a href="network.html">Knowledge Network</a>
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#commit">Commitments</a>
+      <a href="index.html#sectors">Investment Areas</a>
+      <a href="index.html#principles">Principles</a>
+      <a href="index.html#registry">Registry</a>
+      <a href="index.html#faqs">FAQs</a>
     </div>
     <a class="btn btn-green" href="index.html#pledge">Register Now<span class="shine"></span></a>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
@@ -920,13 +941,13 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
     </button>
   </div>
   <div class="mobile-menu" id="mmenu">
+    <a href="mission.html">Mission</a>
+    <a href="model.html" aria-current="page">The Model</a>
+    <a href="network.html">Knowledge Network</a>
     <a href="index.html#how">How it works</a>
     <a href="index.html#commit">Commitments</a>
     <a href="index.html#sectors">Investment Areas</a>
     <a href="index.html#principles">Principles</a>
-    <a href="mission.html">Mission</a>
-    <a href="model.html" aria-current="page">The Model</a>
-    <a href="network.html">Knowledge Network</a>
     <a href="index.html#registry">Registry</a>
     <a href="index.html#faqs">FAQs</a>
     <a href="index.html#pledge" style="color:var(--green);font-weight:700">Register Now →</a>
@@ -1003,7 +1024,7 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
       </div>
       <div class="stat rv-s" data-d="5">
         <div class="ic"><i class="fa-solid fa-seedling" aria-hidden="true"></i></div>
-        <b class="num">$500M–$1B</b>
+        <b class="num sm">$500M–$1B</b>
         <span>Phase 1 pilot raise, before any scale-up</span>
       </div>
       <div class="stat rv-s" data-d="6">
@@ -1278,9 +1299,10 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
             <span class="p-shr">10%</span>
           </div>
 
+          <p class="pp-note">Row bars are scaled to the largest single mechanism, not to the total.</p>
+
           <div class="path-total">
             <span class="p-lab">Total potential</span>
-            <span class="bar"><i data-w="100" style="background:linear-gradient(90deg,var(--gold),var(--gold-2))"></i></span>
             <span class="p-amt num">$20B</span>
             <span class="p-shr">100%</span>
           </div>

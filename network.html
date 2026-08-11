@@ -129,9 +129,20 @@ nav.main .wrap{display:flex;align-items:center;gap:26px;padding-top:14px;padding
 .nav-links a[aria-current="page"]{color:var(--green);font-weight:600}
 .nav-links a[aria-current="page"]::after{transform:scaleX(1)}
 .burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:42px;height:42px;place-items:center}
-/* nine site-wide links need a little more room than the six on the homepage */
-@media(max-width:1220px){.nav-links a{font-size:13.5px;padding:8px 8px}.nav-links a::after{left:8px;right:8px}nav.main .wrap{gap:18px}}
-@media(max-width:1120px){.nav-links{display:none}.burger{display:grid}.topbar .right span:nth-child(2){display:none}}
+.nav-links a{white-space:nowrap}
+nav.main>.wrap>.btn{white-space:nowrap;flex:none}
+/* nine site-wide links need more room than the six on the homepage: the full
+   row is shown only at the container's full width, and hands over to the
+   mobile menu below it. Brand mark, wordmark and CTA keep their positions. */
+@media(min-width:1220px){
+  nav.main .wrap{gap:16px}
+  .brand small{display:none}
+  .nav-links{gap:0}
+  .nav-links a{font-size:13px;padding:8px 6px}
+  .nav-links a::after{left:6px;right:6px}
+}
+@media(max-width:1219px){.nav-links{display:none}.burger{display:grid}}
+@media(max-width:960px){.topbar .right span:first-child{display:none}}
 .mobile-menu{display:none;border-top:1px solid var(--line);background:#fff}
 .mobile-menu.open{display:block;animation:menuDrop .3s var(--ease)}
 @keyframes menuDrop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
@@ -951,7 +962,7 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
       </div>
       <div class="hero-note">
         <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i>
-        Nobody has to move. Brain drain becomes <b>brain circulation</b> when knowledge, technology, capital, networks, standards and global access travel back — even when the person does not.
+        <span>Nobody has to move. Brain drain becomes <b>brain circulation</b> when knowledge, technology, capital, networks, standards and global access travel back — even when the person does not.</span>
       </div>
     </div>
 
