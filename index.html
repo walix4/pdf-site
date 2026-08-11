@@ -468,16 +468,31 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
 /* ============================================================
    STEPS
    ============================================================ */
-#how{background:linear-gradient(180deg,var(--white) 0%,var(--paper) 14%,var(--paper-2) 52%,var(--paper) 88%,var(--white) 100%)}
+#how{
+  position:relative;isolation:isolate;
+  background:
+    radial-gradient(80% 60% at 50% 0%,rgba(11,81,50,.07),transparent 62%),
+    linear-gradient(180deg,var(--paper) 0%,var(--paper-2) 42%,#E4EBE7 72%,var(--paper-2) 100%);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)
+}
+/* faint grid so the band reads as a surface, not a blank wash */
+#how::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(11,81,50,.05) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(11,81,50,.05) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(72% 62% at 50% 45%,#000,transparent 82%);
+          mask-image:radial-gradient(72% 62% at 50% 45%,#000,transparent 82%)
+}
 #how .s-prev{background:linear-gradient(180deg,var(--white) 0%,#F4F7F5 62%,var(--paper-2) 100%)}
 .steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
 @media(max-width:960px){.steps{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.steps{grid-template-columns:1fr}}
 
 /* card shell */
-.step{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:14px 14px 16px;box-shadow:var(--sh-1);overflow:hidden}
+.step{position:relative;display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:14px 14px 16px;box-shadow:0 2px 4px rgba(12,24,17,.05),0 10px 26px -10px rgba(12,24,17,.16);overflow:hidden}
 .step,.step.rv.in{transition:transform .45s var(--spring),box-shadow .4s var(--ease),border-color .35s var(--ease),opacity .7s var(--ease)}
-.step:hover{transform:translateY(-7px);box-shadow:var(--sh-2);border-color:var(--line-2)}
+.step:hover{transform:translateY(-7px);box-shadow:0 4px 8px rgba(12,24,17,.06),0 22px 46px -14px rgba(12,24,17,.26);border-color:var(--line-2)}
 .step::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green-2),var(--gold));transform:scaleX(0);transform-origin:0 50%;transition:transform .55s var(--ease);z-index:3}
 .step:hover::after{transform:none}
 
@@ -679,12 +694,27 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
    ============================================================ */
 .status-pill{display:inline-flex;align-items:center;gap:8px;background:var(--gold-050);border:1px solid var(--gold-2);color:#7a6110;font-size:12px;font-weight:600;letter-spacing:.06em;padding:7px 14px;border-radius:100px}
 .status-pill i{width:8px;height:8px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+#principles{
+  position:relative;isolation:isolate;
+  background:
+    radial-gradient(70% 55% at 50% 0%,rgba(192,143,43,.07),transparent 60%),
+    linear-gradient(180deg,var(--paper) 0%,var(--paper-2) 45%,#E4EBE7 75%,var(--paper-2) 100%);
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line)
+}
+#principles::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:linear-gradient(rgba(11,81,50,.05) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(11,81,50,.05) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(70% 60% at 50% 45%,#000,transparent 82%);
+          mask-image:radial-gradient(70% 60% at 50% 45%,#000,transparent 82%)
+}
 .prin-status{
   display:flex;flex-wrap:wrap;align-items:center;gap:clamp(18px,3vw,38px);
   padding:20px clamp(20px,2.6vw,30px);margin-bottom:22px;
   background:linear-gradient(150deg,var(--white),var(--paper));
   border:1px solid var(--line);border-left:4px solid var(--gold);
-  border-radius:0 var(--r-lg) var(--r-lg) 0;box-shadow:var(--sh-1)
+  border-radius:0 var(--r-lg) var(--r-lg) 0;box-shadow:0 2px 4px rgba(12,24,17,.05),0 10px 26px -10px rgba(12,24,17,.14)
 }
 .ps-count{display:flex;align-items:baseline;gap:10px;flex:none}
 .ps-count b{font-family:var(--head);font-weight:800;font-size:clamp(30px,3.4vw,42px);letter-spacing:-.04em;line-height:1;color:var(--ink)}
@@ -700,7 +730,7 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
 .prin{
   position:relative;display:flex;flex-direction:column;gap:14px;overflow:hidden;
   background:var(--white);border:1px solid var(--line);border-radius:var(--r-lg);
-  padding:24px 22px;box-shadow:var(--sh-1);
+  padding:24px 22px;box-shadow:0 2px 4px rgba(12,24,17,.05),0 10px 26px -10px rgba(12,24,17,.16);
   transition:transform .35s var(--spring),box-shadow .35s var(--ease),border-color .3s
 }
 .prin::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;
@@ -787,9 +817,12 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
 .vs-col:hover{transform:translateY(-6px);box-shadow:var(--sh-2)}
 .vs-col.hi{border:2px solid var(--green-2);box-shadow:0 18px 46px rgba(11,81,50,.16)}
 .vs-col.hi .vs-head{background:linear-gradient(180deg,var(--green-050),transparent)}
-.vs-col.hi::before{content:"Recommended";position:absolute;top:14px;right:-34px;transform:rotate(38deg);
-  background:var(--green-2);color:#fff;font-size:9.4px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
-  padding:5px 38px;box-shadow:0 4px 12px rgba(11,81,50,.28)}
+.vs-col.hi::before{
+  content:"Recommended";position:absolute;top:14px;right:14px;z-index:3;
+  background:var(--green-2);color:#fff;font-size:9.4px;font-weight:700;
+  letter-spacing:.12em;text-transform:uppercase;
+  padding:6px 13px;border-radius:100px;box-shadow:0 4px 12px rgba(11,81,50,.3)}
+.vs-col.hi .vs-head{padding-right:132px}
 .vs-col{position:relative}
 .vs-list li{transition:background .2s;border-radius:6px}
 .vs-list li:hover{background:var(--paper)}
@@ -912,6 +945,28 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
    PLEDGE FORM
    ============================================================ */
 .pledge-band{background:linear-gradient(180deg,#fff, var(--paper) 30%)}
+.wz-steps{display:flex;gap:6px;margin:0 0 22px}
+.wz-dot{display:flex;align-items:center;gap:9px;flex:1;padding:10px 12px;border-radius:10px;
+  background:var(--paper);border:1px solid var(--line);cursor:default;transition:all .3s var(--ease)}
+.wz-dot i{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;
+  font-style:normal;font-family:var(--head);font-size:11.5px;font-weight:800;
+  background:var(--line);color:var(--ink-3);transition:all .3s var(--ease)}
+.wz-dot span{font-size:12.4px;font-weight:600;color:var(--ink-3);white-space:nowrap;transition:color .3s}
+.wz-dot.on{background:var(--green-050);border-color:var(--green-2)}
+.wz-dot.on i{background:var(--green);color:#fff}
+.wz-dot.on span{color:var(--green)}
+.wz-dot.done{cursor:pointer}
+.wz-dot.done i{background:var(--gold);color:var(--pine-2)}
+.wz-dot.done span{color:var(--ink-2)}
+@media(max-width:560px){.wz-dot span{display:none}.wz-dot{justify-content:center}}
+.wz-pane{display:none}
+.wz-pane.on{display:block;animation:wzIn .4s var(--ease) both}
+@keyframes wzIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+.wz-back{display:none}
+.form-card.s1 .wz-back,.form-card.s2 .wz-back{display:inline-flex}
+.wz-submit{display:none}
+.form-card.s2 .wz-submit{display:inline-flex}
+.form-card.s2 .wz-next{display:none}
 .form-card .field{margin-bottom:14px}
 .form-card textarea{min-height:76px}
 .form-card .row2{gap:16px}
@@ -1310,6 +1365,13 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
           <b>Your pledge</b>
           <div class="fp"><span><b id="fpNum">0</b> of 6 required</span><span class="track"><i id="fpBar"></i></span></div>
         </div>
+        <div class="wz-steps" id="wzSteps">
+          <button type="button" class="wz-dot on" data-go="0"><i>1</i><span>You</span></button>
+          <button type="button" class="wz-dot" data-go="1"><i>2</i><span>Commitment</span></button>
+          <button type="button" class="wz-dot" data-go="2"><i>3</i><span>Confirm</span></button>
+        </div>
+
+        <div class="wz-pane on" data-step="0">
         <div class="row2">
           <div class="field" data-req>
             <label for="fName">Full name</label>
@@ -1334,6 +1396,9 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
             <div class="err">Enter your city.</div>
           </div>
         </div>
+        </div>
+
+        <div class="wz-pane" data-step="1">
         <div class="row2">
           <div class="field">
             <label for="fPhone">WhatsApp or phone <small>— optional</small></label>
@@ -1369,6 +1434,9 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
             </select>
           </div>
         </div>
+        </div>
+
+        <div class="wz-pane" data-step="2">
         <div class="row2">
           <div class="field">
             <label for="fSkills">Skills you would bring <small>— optional</small></label>
@@ -1384,8 +1452,12 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
           <input type="checkbox" id="fAgree">
           <span>I agree that if Pakistan achieves and sustains rule of law, democracy, freedom of the judiciary, and protection of human rights, I am willing to invest or deposit the amount pledged above. <b>This agreement is required to record a pledge.</b></span>
         </label>
+        </div>
+
         <div class="form-foot">
-          <button class="btn btn-green" type="submit">Register now<span class="arr">→</span><span class="shine"></span></button>
+          <button class="btn btn-line wz-back" type="button" id="wzBack">← Back</button>
+          <button class="btn btn-green wz-next" type="button" id="wzNext">Continue<span class="arr">→</span><span class="shine"></span></button>
+          <button class="btn btn-green wz-submit" type="submit">Register now<span class="arr">→</span><span class="shine"></span></button>
           <p class="form-legal">This is a non-binding, good-faith commitment. It does not constitute a financial transaction, contract, or transfer of funds.</p>
         </div>
       </form>
@@ -1914,6 +1986,41 @@ function updatePreview(){
   v=selected.length?selected.join(', '):'\u2014'; if(ps.textContent!==v){ps.textContent=v;flash(ps.parentNode);}
   v=money(amountVal()); if(pa.textContent!==v){pa.textContent=v;flash(pa.parentNode);}
 }
+/* ---------- WIZARD ---------- */
+var wzAt=0, wzCard=$('.form-card');
+function wzShow(i){
+  wzAt=Math.max(0,Math.min(2,i));
+  $$('.wz-pane').forEach(function(p,n){p.classList.toggle('on',n===wzAt);});
+  $$('.wz-dot').forEach(function(d,n){
+    d.classList.toggle('on',n===wzAt);
+    d.classList.toggle('done',n<wzAt);
+  });
+  wzCard.classList.remove('s0','s1','s2'); wzCard.classList.add('s'+wzAt);
+}
+var WZ_REQ=[[0,1,2,3],[4,5],[]];
+function wzValid(step){
+  var c=checks(), ok=true, firstBad=null;
+  WZ_REQ[step].forEach(function(idx){
+    var x=c[idx], el=x[0]||$('#fSectorAdd'), f=el.closest('.field');
+    if(!x[1]){ok=false;f.classList.add('bad');f.classList.remove('good');if(!firstBad)firstBad=f;}
+  });
+  if(!ok&&firstBad) firstBad.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+  return ok;
+}
+$('#wzNext').addEventListener('click',function(){
+  if(!wzValid(wzAt)) return;
+  wzShow(wzAt+1);
+  wzCard.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+});
+$('#wzBack').addEventListener('click',function(){
+  wzShow(wzAt-1);
+  wzCard.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'});
+});
+$$('.wz-dot').forEach(function(d,n){
+  d.addEventListener('click',function(){ if(n<wzAt) wzShow(n); });
+});
+wzShow(0);
+
 $('#pledgeForm').addEventListener('submit',function(e){
   e.preventDefault();
   var c=checks(), ok=true, firstBad=null;
@@ -1927,7 +2034,12 @@ $('#pledgeForm').addEventListener('submit',function(e){
     var ag=$('.agree'); ag.style.animation='none'; void ag.offsetWidth; ag.style.animation='shake .4s var(--ease)';
     if(!firstBad)firstBad=ag;
   }
-  if(!ok){firstBad.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});return;}
+  if(!ok){
+    var pane=firstBad.closest('.wz-pane');
+    if(pane) wzShow(+pane.getAttribute('data-step'));
+    firstBad.scrollIntoView({behavior:reduce?'auto':'smooth',block:'center'});
+    return;
+  }
   var ref='PDF-2026-'+String(Math.floor(100000+Math.random()*900000));
   $('#doneRef').textContent=ref;
   $('#done').classList.add('open');
@@ -1938,7 +2050,7 @@ $('#pledgeForm').addEventListener('submit',function(e){
 $('#doneClose').addEventListener('click',function(){
   $('#done').classList.remove('open');
   document.body.style.overflow='';
-  $('#pledgeForm').reset(); selected=[]; renderSectorState();
+  $('#pledgeForm').reset(); selected=[]; renderSectorState(); wzShow(0);
   $$('.field').forEach(function(f){f.classList.remove('good','bad');});
   $$('#amtChips button').forEach(function(x){x.classList.remove('on');});
   $('#pvStatus').textContent='Draft \u2014 not yet recorded';
