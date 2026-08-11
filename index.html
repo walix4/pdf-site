@@ -973,12 +973,10 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
 /* grid stretches the preview to the form's height; the photo takes the slack */
 .preview{align-self:stretch;display:flex}
 .pv-card{display:flex;flex-direction:column;width:100%}
-.pv-card .pledge-photo{flex:1 1 0;aspect-ratio:auto;min-height:96px;overflow:hidden}
-.pv-card .pledge-photo img{width:100%;height:100%;min-height:0;object-fit:cover;display:block}
-.pv-card .pv-rows{flex:none}
+.pv-card .pv-rows{flex:1 1 0;display:flex;flex-direction:column;justify-content:space-between}
 @media(max-width:960px){
   .preview{align-self:auto;display:block}
-  .pv-card .pledge-photo{flex:none;aspect-ratio:16/6.4;min-height:0}
+  .pv-card .pv-rows{display:block}
 }
 .pledge-grid{align-items:stretch;display:grid;grid-template-columns:1.05fr .75fr;gap:clamp(26px,4vw,52px);align-items:start}
 @media(max-width:960px){.pledge-grid{grid-template-columns:1fr}}
@@ -1022,6 +1020,7 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
 .preview{position:sticky;top:110px}
 @media(max-width:960px){.preview{position:static}}
 .pv-card{background:var(--pine-2);color:#fff;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-3);transition:transform .3s var(--ease)}
+.pv-card{border-radius:var(--r-lg);overflow:hidden}
 .pv-head{display:flex;justify-content:space-between;align-items:center;padding:17px 22px;background:rgba(255,255,255,.05);border-bottom:1px solid rgba(255,255,255,.1);font-size:12px;letter-spacing:.13em;text-transform:uppercase;font-weight:600;color:var(--gold-2)}
 .pv-rows{padding:10px 22px 18px}
 .pv-row{display:flex;justify-content:space-between;gap-14px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.08);font-size:14px}
@@ -1144,8 +1143,6 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
 .cta-band::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(10,61,38,.55),rgba(6,43,26,.8));pointer-events:none}
 .cta-band .wrap{z-index:2}
 
-.pledge-photo{border-radius:var(--r-lg) var(--r-lg) 0 0;overflow:hidden;aspect-ratio:16/6.4;margin:-1px -1px 0}
-.pledge-photo img{width:100%;height:100%;object-fit:cover;display:block}
 
 </style>
 </head>
@@ -1474,7 +1471,6 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
 
       <aside class="preview rv-r">
         <div class="pv-card" id="pvCard">
-          <div class="pledge-photo"><img src="assets/pledge-badshahi.jpg" alt="Badshahi Mosque, Lahore" loading="lazy" onerror="this.parentNode.style.display='none'"></div>
           <div class="pv-head">Registry entry — preview<span style="color:rgba(255,255,255,.5)">Draft</span></div>
           <div class="pv-rows">
             <div class="pv-row"><span>Pledger</span><b id="pvName">—</b></div>
