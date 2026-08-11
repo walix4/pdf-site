@@ -164,6 +164,44 @@ h1 .gold{
 @keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
 
+/* ---------- anthem control ---------- */
+.snd{
+  position:fixed;right:clamp(16px,3vw,28px);bottom:clamp(16px,3vw,28px);z-index:20;
+  width:48px;height:48px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid rgba(232,206,140,.34);color:var(--gold-2);
+  background:linear-gradient(158deg,rgba(255,255,255,.13),rgba(6,43,26,.5));
+  -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  box-shadow:0 1px 0 rgba(255,255,255,.14) inset,0 12px 30px -10px rgba(0,0,0,.75);
+  cursor:pointer;transition:transform .35s var(--spring),border-color .3s,color .3s,background .3s;
+}
+.snd:hover{transform:translateY(-2px) scale(1.06);border-color:rgba(232,206,140,.6)}
+.snd i{font-size:15px;line-height:1}
+.snd .lab{
+  position:absolute;right:58px;white-space:nowrap;font-size:11px;font-weight:600;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--gold-2);
+  background:rgba(6,43,26,.72);border:1px solid rgba(232,206,140,.26);
+  padding:6px 12px;border-radius:100px;opacity:0;transform:translateX(6px);
+  pointer-events:none;transition:opacity .3s,transform .3s;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+}
+.snd:hover .lab,.snd.blocked .lab{opacity:1;transform:none}
+/* blocked = browser refused autoplay, so invite the click */
+.snd.blocked{animation:sndPulse 2.4s infinite}
+@keyframes sndPulse{0%,100%{box-shadow:0 0 0 0 rgba(232,206,140,.4),0 12px 30px -10px rgba(0,0,0,.75)}
+                    55%{box-shadow:0 0 0 12px rgba(232,206,140,0),0 12px 30px -10px rgba(0,0,0,.75)}}
+/* equaliser bars while playing */
+.snd.on{color:#fff;border-color:rgba(232,206,140,.6)}
+.eq{display:none;align-items:flex-end;gap:2px;height:14px}
+.snd.on .eq{display:flex}
+.snd.on i{display:none}
+.eq b{width:2.5px;border-radius:2px;background:var(--gold-2);animation:eq .9s ease-in-out infinite}
+.eq b:nth-child(1){height:6px;animation-delay:0s}
+.eq b:nth-child(2){height:13px;animation-delay:.18s}
+.eq b:nth-child(3){height:9px;animation-delay:.36s}
+.eq b:nth-child(4){height:14px;animation-delay:.54s}
+@keyframes eq{0%,100%{transform:scaleY(.42)}50%{transform:scaleY(1)}}
+@media (prefers-reduced-motion: reduce){.snd.blocked,.eq b{animation:none}}
+
 /* ---------- footer ---------- */
 .foot{
   position:relative;z-index:4;flex:none;border-top:1px solid rgba(232,206,140,.2);
@@ -217,6 +255,13 @@ h1 .gold{
   </div>
 </div>
 
+<audio id="anthem" preload="auto" src="assets/anthem.mp3"></audio>
+<button class="snd" id="snd" type="button" aria-pressed="false" aria-label="Play the national anthem">
+  <span class="lab" id="sndLab">Play anthem</span>
+  <i class="fa-solid fa-volume-xmark" aria-hidden="true"></i>
+  <span class="eq" aria-hidden="true"><b></b><b></b><b></b><b></b></span>
+</button>
+
 <footer class="foot">
   <div class="foot-in">
     <span>&copy; 2026 Pakistan Diaspora Fund</span>
@@ -226,6 +271,43 @@ h1 .gold{
 </footer>
 
 <script>
+/* ---- national anthem: attempt autoplay, fall back to a prompt ---- */
+(function(){
+  var a=document.getElementById('anthem'), btn=document.getElementById('snd'), lab=document.getElementById('sndLab');
+  if(!a||!btn) return;
+  var KEY='pdf-anthem-off';
+  function setOn(on){
+    btn.classList.toggle('on',on);
+    btn.setAttribute('aria-pressed',String(on));
+    btn.setAttribute('aria-label',on?'Stop the national anthem':'Play the national anthem');
+    lab.textContent=on?'Playing':'Play anthem';
+  }
+  function play(){
+    return a.play().then(function(){
+      btn.classList.remove('blocked'); setOn(true); return true;
+    }).catch(function(){
+      // browser blocked audio until the user interacts - invite a click
+      btn.classList.add('blocked'); setOn(false); lab.textContent='Play anthem'; return false;
+    });
+  }
+  a.addEventListener('ended',function(){setOn(false);lab.textContent='Play again';});
+  btn.addEventListener('click',function(){
+    btn.classList.remove('blocked');
+    if(a.paused){ try{localStorage.removeItem(KEY);}catch(e){} play(); }
+    else { a.pause(); a.currentTime=0; setOn(false); try{localStorage.setItem(KEY,'1');}catch(e){} }
+  });
+  var muted=false; try{muted=localStorage.getItem(KEY)==='1';}catch(e){}
+  if(muted){ setOn(false); }
+  else {
+    play().then(function(ok){
+      if(ok) return;
+      // one-shot: the first click anywhere satisfies the autoplay gate
+      var go=function(){ document.removeEventListener('pointerdown',go); play(); };
+      document.addEventListener('pointerdown',go,{once:true});
+    });
+  }
+})();
+
 (function(){
   // 14 August 2026, 00:00 Pakistan Standard Time (UTC+5) — fixed instant, timezone-safe
   var TARGET = Date.UTC(2026,7,13,19,0,0);
