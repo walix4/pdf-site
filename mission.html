@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mission — Why this platform exists | Pakistan Diaspora Fund</title>
+<meta name="description" content="Diaspora capital has financed national development before. Pakistan has the ingredients — 9–10 million overseas Pakistanis and record remittances — but the binding constraint is confidence, not money. Here is the precedent, the obstacle, and the phased response.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700;800&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@7.2.3/css/flag-icons.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<style>
+/* ============================================================
+   TOKENS — shared with index.html
+   ============================================================ */
+:root{
+  --white:#FFFFFF;
+  --paper:#F7F9F8;
+  --paper-2:#EDF2EF;
+  --line:#E0E6E2;
+  --line-2:#C7D2CB;
+  --ink:#0C1811;
+  --ink-2:#3B4A43;
+  --ink-3:#67756D;
+
+  --pine:#0A3D26;
+  --pine-2:#062B1A;
+  --green:#0B5132;
+  --green-2:#0E7C4A;
+  --green-050:#EAF4EE;
+
+  --gold:#C08F2B;
+  --gold-2:#E8CE8C;
+  --gold-050:#FAF3E2;
+  --red:#9B2226;
+
+  --head:"Inter Tight",-apple-system,"Segoe UI",Roboto,sans-serif;
+  --body:"Inter",-apple-system,"Segoe UI",Roboto,sans-serif;
+
+  --wrap:1220px;
+  --pad:clamp(20px,4.5vw,52px);
+  --r:12px;
+  --r-lg:18px;
+  --sh-1:0 1px 2px rgba(12,24,17,.05), 0 1px 3px rgba(12,24,17,.04);
+  --sh-2:0 4px 12px rgba(12,24,17,.06), 0 12px 32px rgba(12,24,17,.08);
+  --sh-3:0 18px 48px rgba(12,24,17,.15), 0 4px 12px rgba(12,24,17,.07);
+
+  --ease:cubic-bezier(.22,.7,.16,1);
+  --spring:cubic-bezier(.34,1.45,.5,1);
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:86px}
+body{
+  margin:0;background:var(--white);color:var(--ink);
+  font-family:var(--body);font-size:16.5px;line-height:1.65;
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+}
+img,svg{max-width:100%}
+a{color:inherit}
+button{font:inherit;color:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:2px;border-radius:4px}
+.wrap{max-width:var(--wrap);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.num{font-variant-numeric:tabular-nums;letter-spacing:-.015em}
+.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip{position:fixed;top:-60px;left:16px;z-index:300;background:var(--green);color:#fff;padding:11px 18px;border-radius:8px;text-decoration:none;transition:top .2s}
+.skip:focus{top:14px}
+
+h1,h2,h3{font-family:var(--head);font-weight:700;letter-spacing:-.028em;line-height:1.08;margin:0}
+h1{font-size:clamp(36px,5vw,62px);line-height:1.03}
+h2{font-size:clamp(27px,3.2vw,42px)}
+h3{font-size:19px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:9px;font-size:11.5px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--green-2);margin:0 0 16px;
+}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--gold);border-radius:2px}
+.eyebrow.on-dark{color:var(--gold-2)}
+.lead{font-size:clamp(16.5px,1.5vw,19px);color:var(--ink-2);max-width:62ch}
+.on-dark .lead,.lead.on-dark{color:rgba(255,255,255,.78)}
+
+/* ============================================================
+   SCROLL PROGRESS
+   ============================================================ */
+#progress{position:fixed;top:0;left:0;height:3px;width:100%;z-index:250;background:transparent;pointer-events:none}
+#progress i{display:block;height:100%;width:100%;background:linear-gradient(90deg,var(--gold),var(--gold-2));transform-origin:0 50%;transform:scaleX(0)}
+
+/* ============================================================
+   REVEAL SYSTEM
+   ============================================================ */
+.rv{opacity:0;transform:translateY(26px)}
+.rv.in{opacity:1;transform:none;transition:opacity .75s var(--ease),transform .75s var(--ease)}
+.rv-l{opacity:0;transform:translateX(-30px)}
+.rv-l.in{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv-r{opacity:0;transform:translateX(30px)}
+.rv-r.in{opacity:1;transform:none;transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv-s{opacity:0;transform:scale(.92)}
+.rv-s.in{opacity:1;transform:none;transition:opacity .7s var(--ease),transform .7s var(--spring)}
+[data-d="1"]{transition-delay:.08s}[data-d="2"]{transition-delay:.16s}[data-d="3"]{transition-delay:.24s}
+[data-d="4"]{transition-delay:.32s}[data-d="5"]{transition-delay:.4s}[data-d="6"]{transition-delay:.48s}
+[data-d="7"]{transition-delay:.56s}[data-d="8"]{transition-delay:.64s}[data-d="9"]{transition-delay:.72s}
+[data-d="10"]{transition-delay:.8s}
+
+/* ============================================================
+   TOPBAR + NAV
+   ============================================================ */
+.topbar{background:var(--pine-2);color:rgba(255,255,255,.85);font-size:12.8px}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:8px;padding-bottom:8px}
+.topbar a{text-decoration:none;opacity:.9;transition:opacity .2s}
+.topbar a:hover{opacity:1;color:var(--gold-2)}
+.topbar .right{display:flex;gap:18px}
+.topdot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-right:8px;animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,162,39,.45)}55%{box-shadow:0 0 0 7px rgba(201,162,39,0)}}
+
+nav.main{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s,background .3s}
+nav.main.scrolled{border-color:var(--line);box-shadow:0 6px 24px rgba(12,24,17,.06)}
+nav.main .wrap{display:flex;align-items:center;gap:26px;padding-top:14px;padding-bottom:14px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
+.brand .mark{width:42px;height:42px;border-radius:11px;background:radial-gradient(120% 120% at 20% 15%,var(--green-2),var(--pine) 68%);display:grid;place-items:center;color:#fff;box-shadow:var(--sh-1);transition:transform .35s var(--spring)}
+.brand:hover .mark{transform:rotate(-6deg) scale(1.06)}
+.brand b{font-family:var(--head);font-size:16.5px;line-height:1.15;letter-spacing:-.02em;display:block}
+.brand small{display:block;font-size:10.6px;color:var(--ink-3);letter-spacing:.05em;font-weight:500}
+.nav-links{display:flex;gap:4px}
+.nav-links a{position:relative;text-decoration:none;font-size:14.2px;font-weight:500;color:var(--ink-2);padding:8px 12px;border-radius:8px;transition:color .2s,background .2s}
+.nav-links a:hover{color:var(--green);background:var(--green-050)}
+.nav-links a::after{content:"";position:absolute;left:12px;right:12px;bottom:3px;height:2px;background:var(--gold);border-radius:2px;transform:scaleX(0);transform-origin:0 50%;transition:transform .3s var(--ease)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-links a[aria-current="page"]{color:var(--green);font-weight:600}
+.nav-links a[aria-current="page"]::after{transform:scaleX(1)}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:42px;height:42px;place-items:center}
+@media(max-width:960px){.nav-links{display:none}.burger{display:grid}.topbar .right span:nth-child(2){display:none}}
+
+/* the site-wide link set is longer than one bar can hold at ease:
+   tighten above 1200px, hand over to the menu below it */
+@media(min-width:1201px){
+  nav.main .wrap{gap:14px}
+  nav.main .brand small{display:none}
+  /* wrapping is the safety net: links drop to a second row rather than
+     pushing the call to action out of the bar */
+  .nav-links{gap:2px;row-gap:4px;flex-wrap:wrap;justify-content:flex-end;min-width:0;max-width:100%}
+  .nav-links a{font-size:12.9px;padding:8px 6px;white-space:nowrap}
+  .nav-links a::after{left:6px;right:6px}
+  nav.main .wrap>.btn{padding:11px 16px;font-size:13.8px;white-space:nowrap;flex:none}
+}
+@media(max-width:1200px){.nav-links{display:none}.burger{display:grid}}
+
+.mobile-menu{display:none;border-top:1px solid var(--line);background:#fff}
+.mobile-menu.open{display:block;animation:menuDrop .3s var(--ease)}
+@keyframes menuDrop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+.mobile-menu a{display:block;padding:13px var(--pad);text-decoration:none;font-weight:500;border-bottom:1px solid var(--paper-2)}
+.mobile-menu a[aria-current="page"]{color:var(--green);font-weight:700;background:var(--green-050)}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{position:relative;display:inline-flex;align-items:center;gap:9px;border:0;border-radius:11px;padding:14px 24px;font-weight:600;font-size:15px;text-decoration:none;overflow:hidden;isolation:isolate;transition:transform .25s var(--spring),box-shadow .3s}
+.btn:active{transform:scale(.97)}
+.btn-gold{background:linear-gradient(135deg,var(--gold-2),var(--gold));color:var(--pine-2);box-shadow:0 8px 22px rgba(201,162,39,.35)}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(201,162,39,.45)}
+.btn-green{background:linear-gradient(135deg,var(--green-2),var(--green));color:#fff;box-shadow:0 8px 22px rgba(11,81,50,.28)}
+.btn-green:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(11,81,50,.38)}
+.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35)}
+.btn-ghost:hover{border-color:var(--gold-2);color:var(--gold-2);transform:translateY(-2px)}
+.btn-line{background:#fff;color:var(--green);border:1.5px solid var(--line-2)}
+.btn-line:hover{border-color:var(--green-2);background:var(--green-050);transform:translateY(-2px)}
+.btn .shine{position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 40%,rgba(255,255,255,.55) 50%,transparent 60%);transform:translateX(-120%)}
+.btn:hover .shine{animation:shine .9s var(--ease)}
+@keyframes shine{to{transform:translateX(120%)}}
+.btn .arr{transition:transform .3s var(--spring)}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* ============================================================
+   SECTION SHELL
+   ============================================================ */
+section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,8vw,104px)}
+.sec-head{max-width:720px;margin-bottom:clamp(30px,4vw,52px)}
+.sec-head.center{margin-left:auto;margin-right:auto;text-align:center}
+.sec-head.center .eyebrow{justify-content:center}
+.sec-head.center .eyebrow::before{display:none}
+.sec-head p{margin:14px 0 0}
+.sec-sub{margin-top:clamp(34px,4vw,54px);margin-bottom:20px;max-width:760px}
+.sec-sub h3{font-size:clamp(20px,2vw,25px);letter-spacing:-.024em}
+.sec-sub p{margin:10px 0 0;font-size:15.4px;color:var(--ink-2)}
+
+/* generic progress bar (shared with the phase cards) */
+.bar{height:8px;background:var(--paper-2);border-radius:100px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:100px;background:linear-gradient(90deg,var(--green-2),var(--green));transition:width 1.4s var(--ease)}
+
+/* ============================================================
+   PAGE HERO — the same pine stage, held lighter
+   ============================================================ */
+.phero{
+  position:relative;isolation:isolate;overflow:hidden;color:#fff;
+  background:
+    radial-gradient(100% 70% at 50% -24%,rgba(11,81,50,.52) 0%,transparent 62%),
+    linear-gradient(166deg,var(--pine) 0%,var(--pine) 24%,var(--pine-2) 94%);
+}
+.phero a:focus-visible{outline:2px solid var(--gold-2);outline-offset:3px}
+.phero-photo{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:url('assets/hero-pakistan.jpg');
+  background-size:cover;background-position:62% 58%;
+  opacity:.46;mix-blend-mode:luminosity;
+  filter:grayscale(.34) contrast(1.12) brightness(1.04);
+  -webkit-mask-image:radial-gradient(120% 108% at 92% 12%,#000 0%,rgba(0,0,0,.62) 42%,transparent 82%);
+          mask-image:radial-gradient(120% 108% at 92% 12%,#000 0%,rgba(0,0,0,.62) 42%,transparent 82%);
+}
+.phero::before{
+  content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:
+    linear-gradient(100deg,rgba(6,43,26,.86) 0%,rgba(6,43,26,.62) 40%,rgba(6,43,26,.22) 74%,rgba(6,43,26,.05) 100%),
+    linear-gradient(180deg,rgba(6,43,26,.45) 0%,rgba(6,43,26,0) 34%,rgba(6,43,26,.42) 100%);
+}
+.phero::after{
+  content:"";position:absolute;inset:0;z-index:5;pointer-events:none;
+  background:
+    linear-gradient(90deg,transparent 0,rgba(227,194,88,.30) 26%,rgba(227,194,88,.08) 72%,transparent 100%) top/100% 1px no-repeat,
+    linear-gradient(90deg,transparent 0,rgba(201,162,39,.22) 40%,transparent 100%) bottom/100% 1px no-repeat;
+}
+.phero-grid-bg{
+  position:absolute;inset:0;z-index:2;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+  background-size:120px 120px,120px 120px;
+  -webkit-mask-image:radial-gradient(86% 78% at 14% 24%,#000 0%,rgba(0,0,0,.45) 48%,transparent 86%);
+          mask-image:radial-gradient(86% 78% at 14% 24%,#000 0%,rgba(0,0,0,.45) 48%,transparent 86%);
+}
+.phero .wrap{position:relative;z-index:4;padding-top:clamp(40px,5.6vw,72px);padding-bottom:clamp(44px,5.6vw,72px)}
+.crumb{display:flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.55);margin-bottom:22px}
+.crumb a{text-decoration:none;transition:color .2s}
+.crumb a:hover{color:var(--gold-2)}
+.crumb i{font-size:8px;opacity:.6}
+.crumb b{color:var(--gold-2);font-weight:600}
+.phero h1{font-size:clamp(32px,4.6vw,54px);line-height:1.02;letter-spacing:-.034em;max-width:17ch;text-wrap:balance;text-shadow:0 14px 38px rgba(6,43,26,.42)}
+.phero h1 em{font-style:normal;color:var(--gold-2)}
+.phero p.lead{margin:22px 0 0;max-width:58ch;color:rgba(255,255,255,.84)}
+.hchips{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
+.hchip{
+  display:inline-flex;align-items:center;gap:10px;padding:10px 15px;border-radius:100px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);
+  font-size:12.9px;line-height:1.35;color:rgba(255,255,255,.72);
+  box-shadow:0 1px 0 rgba(255,255,255,.10) inset;
+  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
+  transition:border-color .25s,background .25s,transform .3s var(--spring);
+}
+.hchip:hover{border-color:rgba(227,194,88,.5);background:rgba(227,194,88,.09);transform:translateY(-2px)}
+.hchip i{color:var(--gold-2);font-size:12.5px}
+.hchip b{color:#fff;font-weight:650}
+@media(max-width:560px){.hchip{font-size:12.2px;padding:9px 13px}}
+
+/* ============================================================
+   PRECEDENT
+   ============================================================ */
+.prec-band{background:linear-gradient(180deg,var(--white) 0%,var(--paper) 34%,var(--paper) 66%,var(--white) 100%)}
+.prec-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:860px){.prec-grid{grid-template-columns:1fr}}
+.prec{
+  position:relative;display:flex;flex-direction:column;overflow:hidden;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-1);
+  transition:transform .4s var(--spring),box-shadow .4s var(--ease),border-color .3s;
+}
+.prec.rv.in{transition:transform .4s var(--spring),box-shadow .4s var(--ease),border-color .3s,opacity .7s var(--ease)}
+.prec:hover{transform:translateY(-6px);box-shadow:var(--sh-2);border-color:var(--line-2)}
+.prec::after{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--green-2),var(--gold));transform:scaleX(0);transform-origin:0 50%;transition:transform .55s var(--ease)}
+.prec:hover::after{transform:none}
+.prec-head{display:flex;align-items:center;gap:14px;padding:22px 22px 18px;border-bottom:1px solid var(--paper-2);background:linear-gradient(180deg,var(--paper) 0%,#fff 100%)}
+.prec-head .fi{flex:none;width:40px;height:28px;border-radius:5px;background-size:cover;box-shadow:0 0 0 1px var(--line-2),var(--sh-1)}
+.prec-head h3{font-size:19px;letter-spacing:-.022em}
+.prec-head .tag{display:block;font-size:10.6px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);margin-top:5px}
+.prec-body{padding:20px 22px 4px}
+.prec-big{
+  font-family:var(--head);font-weight:800;font-size:clamp(30px,3.4vw,40px);
+  letter-spacing:-.036em;line-height:1;color:var(--green);font-variant-numeric:tabular-nums;
+}
+.prec-big small{display:inline-block;font-size:.32em;font-weight:700;letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);vertical-align:.34em;margin-left:.35em}
+.prec-cap{font-size:12.6px;color:var(--ink-3);margin:9px 0 0}
+.prec-body p{font-size:14.4px;line-height:1.65;color:var(--ink-2);margin:16px 0 0}
+.prec-rows{list-style:none;margin:18px 0 0;padding:0}
+.prec-rows li{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:11px 0;border-bottom:1px dashed var(--line);font-size:14.2px;color:var(--ink-2)}
+.prec-rows li:last-child{border-bottom:0}
+.prec-rows b{font-family:var(--head);font-weight:700;letter-spacing:-.012em;color:var(--ink);white-space:nowrap}
+.prec-foot{margin-top:auto;padding:14px 22px;background:var(--paper);border-top:1px solid var(--line);font-size:12.2px;color:var(--ink-3)}
+.prec-note{
+  display:flex;gap:15px;align-items:flex-start;margin-top:16px;
+  padding:18px 20px;border-radius:var(--r);border:1px solid var(--line);border-left:3px solid var(--gold);
+  background:linear-gradient(96deg,var(--gold-050) 0%,#fff 62%);
+  font-size:14.6px;line-height:1.65;color:var(--ink-2);
+}
+.prec-note i{flex:none;font-size:17px;color:var(--gold);margin-top:2px}
+.prec-note b{color:var(--ink);font-weight:650}
+
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:900px){.why-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.why-grid{grid-template-columns:1fr}}
+.why{
+  position:relative;display:flex;flex-direction:column;overflow:hidden;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:18px 18px 17px;box-shadow:var(--sh-1);
+  transition:transform .4s var(--spring),box-shadow .4s var(--ease),border-color .3s;
+}
+.why.rv.in{transition:transform .4s var(--spring),box-shadow .4s var(--ease),border-color .3s,opacity .7s var(--ease)}
+.why:hover{transform:translateY(-5px);box-shadow:var(--sh-2);border-color:var(--line-2)}
+.why::before{content:"";position:absolute;top:0;left:0;height:2px;width:30px;border-radius:0 2px 2px 0;background:linear-gradient(90deg,var(--gold),var(--gold-2));transition:width .5s var(--ease)}
+.why:hover::before{width:100%}
+.why .ic{
+  width:36px;height:36px;border-radius:10px;display:grid;place-items:center;margin-bottom:13px;
+  background:var(--green-050);color:var(--green);border:1px solid rgba(11,81,50,.09);
+  transition:background .35s var(--ease),color .35s var(--ease),transform .45s var(--spring),box-shadow .35s;
+}
+.why:hover .ic{background:var(--green);color:#fff;border-color:transparent;box-shadow:0 6px 14px rgba(11,81,50,.22);transform:translateY(-1px) scale(1.05)}
+.why .ic i{font-size:15px;line-height:1}
+.why b{display:block;font-family:var(--head);font-size:15px;font-weight:700;letter-spacing:-.018em;line-height:1.3;color:var(--ink)}
+.why span{display:block;font-size:13.2px;line-height:1.55;color:var(--ink-3);margin-top:6px}
+
+/* ============================================================
+   INGREDIENTS — stat strip
+   ============================================================ */
+.ing-band{background:linear-gradient(180deg,var(--white) 0%,var(--paper-2) 46%,var(--paper) 100%)}
+.stat-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+@media(max-width:1080px){.stat-grid{grid-template-columns:repeat(3,1fr);gap:14px}}
+@media(max-width:640px){.stat-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
+.stat{
+  position:relative;isolation:isolate;overflow:hidden;
+  display:flex;flex-direction:column;
+  background:var(--white);border:1px solid var(--line);border-radius:var(--r);
+  padding:18px 17px 17px;box-shadow:var(--sh-1);
+  transition:transform .4s var(--spring),box-shadow .4s var(--ease),border-color .3s var(--ease)
+}
+.stat::before{
+  content:"";position:absolute;top:0;left:0;height:2px;width:32px;border-radius:0 2px 2px 0;
+  background:linear-gradient(90deg,var(--gold),var(--gold-2));
+  transition:width .5s var(--ease)
+}
+.stat::after{
+  content:"";position:absolute;inset:0;z-index:-1;opacity:0;
+  background:radial-gradient(120% 100% at 0% 0%,var(--green-050),transparent 58%);
+  transition:opacity .4s var(--ease)
+}
+.stat:hover{transform:translateY(-5px);box-shadow:var(--sh-2);border-color:var(--line-2)}
+.stat:hover::before{width:100%}
+.stat:hover::after{opacity:1}
+.stat .ic{
+  width:34px;height:34px;border-radius:9px;display:grid;place-items:center;margin:0 0 14px;
+  background:var(--green-050);color:var(--green);border:1px solid rgba(11,81,50,.09);
+  transition:background .35s var(--ease),color .35s var(--ease),border-color .35s,
+             box-shadow .35s,transform .45s var(--spring)
+}
+.stat:hover .ic{
+  background:var(--green);color:var(--white);border-color:transparent;
+  box-shadow:0 6px 14px rgba(11,81,50,.24);transform:translateY(-1px) scale(1.06)
+}
+.stat .ic i{font-size:14.5px;line-height:1}
+.stat b{
+  display:block;font-family:var(--head);font-weight:800;
+  font-size:clamp(22px,2.05vw,27px);line-height:1.04;letter-spacing:-.032em;color:var(--ink);
+  font-variant-numeric:tabular-nums
+}
+.stat b small{
+  display:inline-block;font-size:.4em;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--ink-3);white-space:nowrap;vertical-align:.28em;margin-left:.2em
+}
+.stat>span{
+  position:relative;display:block;margin-top:13px;padding-top:12px;
+  font-size:12.2px;line-height:1.42;color:var(--ink-3)
+}
+.stat>span::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,var(--line-2) 0,var(--line-2) 18px,var(--line) 18px);
+  transition:background .35s var(--ease)
+}
+.stat:hover>span::before{background:linear-gradient(90deg,var(--gold) 0,var(--gold) 18px,var(--line) 18px)}
+.stat cite{display:block;font-style:normal;font-size:11px;line-height:1.4;letter-spacing:.04em;color:var(--ink-3);opacity:.85;margin-top:7px}
+.stat:hover cite{opacity:1;color:var(--green)}
+
+.redirect{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4vw,52px);align-items:center;margin-top:clamp(30px,4vw,50px)}
+@media(max-width:900px){.redirect{grid-template-columns:1fr}}
+.redirect h3{font-size:clamp(21px,2.2vw,27px);letter-spacing:-.026em;max-width:20ch;text-wrap:balance}
+.redirect p{font-size:15.4px;line-height:1.72;color:var(--ink-2);margin:14px 0 0;max-width:56ch}
+.redirect p b{color:var(--ink);font-weight:650}
+.redirect-fig{position:relative;border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-2);aspect-ratio:16/9.6;margin:0}
+.redirect-fig img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
+.redirect-fig:hover img{transform:scale(1.05)}
+.redirect-fig figcaption{
+  position:absolute;left:0;right:0;bottom:0;z-index:2;margin:0;
+  padding:34px 20px 14px;color:rgba(255,255,255,.9);font-size:12.2px;
+  background:linear-gradient(180deg,transparent,rgba(6,43,26,.85));
+}
+
+/* ============================================================
+   THE OBSTACLE — dark, and deliberately heavy
+   ============================================================ */
+.obs-band{background:var(--pine-2);color:#fff;position:relative;overflow:hidden}
+.obs-band::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(66% 80% at 88% 0%,rgba(14,124,74,.30),transparent 62%),
+             radial-gradient(58% 74% at 0% 100%,rgba(201,162,39,.10),transparent 64%)
+}
+.obs-band .wrap{position:relative;z-index:2}
+.obs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:900px){.obs-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.obs-grid{grid-template-columns:1fr}}
+.obs{
+  position:relative;overflow:hidden;isolation:isolate;
+  display:flex;flex-direction:column;padding:20px 18px 18px;border-radius:var(--r-lg);
+  background:linear-gradient(158deg,rgba(255,255,255,.10),rgba(255,255,255,.035) 62%);
+  border:1px solid rgba(255,255,255,.13);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.10),0 10px 26px rgba(0,0,0,.22);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  transition:transform .38s var(--spring),border-color .3s,box-shadow .35s var(--ease);
+}
+.obs.rv.in{transition:transform .38s var(--spring),border-color .3s,box-shadow .35s var(--ease),opacity .7s var(--ease)}
+.obs::after{content:"";position:absolute;inset:0;z-index:-1;opacity:0;background:radial-gradient(80% 70% at 50% 0%,rgba(227,194,88,.16),transparent 70%);transition:opacity .35s var(--ease)}
+.obs:hover{transform:translateY(-5px);border-color:rgba(255,255,255,.24);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 16px 34px rgba(0,0,0,.3)}
+.obs:hover::after{opacity:.7}
+.obs .ic{
+  width:40px;height:40px;border-radius:12px;display:grid;place-items:center;margin-bottom:14px;
+  color:var(--gold-2);background:linear-gradient(150deg,rgba(227,194,88,.22),rgba(227,194,88,.06));
+  border:1px solid rgba(227,194,88,.30);box-shadow:inset 0 1px 0 rgba(255,255,255,.10);
+  transition:border-color .3s,transform .4s var(--spring);
+}
+.obs:hover .ic{transform:translateY(-1px) scale(1.05);border-color:rgba(227,194,88,.5)}
+.obs .ic i{font-size:16px;line-height:1}
+.obs b{display:block;font-family:var(--head);font-size:15.4px;font-weight:700;letter-spacing:-.018em;line-height:1.3;color:#fff}
+.obs span{display:block;font-size:13.2px;line-height:1.58;color:rgba(255,255,255,.66);margin-top:7px}
+.obs-split{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;
+}
+@media(max-width:760px){.obs-split{grid-template-columns:1fr}}
+.obs-side{
+  position:relative;padding:22px 24px;border-radius:var(--r-lg);
+  background:linear-gradient(158deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+  border:1px solid rgba(255,255,255,.12);
+}
+.obs-side .k{display:inline-flex;align-items:center;gap:8px;font-size:10.6px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.5)}
+.obs-side .k::before{content:"";width:18px;height:2px;border-radius:2px;background:rgba(255,255,255,.3)}
+.obs-side.gold .k{color:var(--gold-2)}
+.obs-side.gold{border-color:rgba(227,194,88,.32);background:linear-gradient(158deg,rgba(227,194,88,.13),rgba(255,255,255,.02))}
+.obs-side.gold .k::before{background:var(--gold)}
+.obs-side p{margin:12px 0 0;font-family:var(--head);font-weight:600;font-size:clamp(17px,1.7vw,20.5px);line-height:1.38;letter-spacing:-.02em;color:#fff}
+.obs-side small{display:block;margin-top:10px;font-size:13.2px;line-height:1.6;color:rgba(255,255,255,.62);font-family:var(--body);font-weight:400;letter-spacing:0}
+
+/* ============================================================
+   PULL QUOTE
+   ============================================================ */
+.quote-band{background:linear-gradient(180deg,var(--paper) 0%,var(--white) 70%)}
+.quote-band .wrap{padding-top:clamp(52px,6.4vw,86px);padding-bottom:clamp(52px,6.4vw,86px)}
+.bigq{
+  position:relative;overflow:hidden;max-width:960px;margin:0 auto;text-align:center;
+  padding:clamp(34px,4.6vw,58px) clamp(24px,4.6vw,64px);
+  background:linear-gradient(135deg,var(--green-050) 0%,rgba(250,243,226,.7) 100%);
+  border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-2);
+}
+.bigq::before{
+  content:"\201C";position:absolute;top:-14px;left:18px;
+  font-family:Georgia,serif;font-size:150px;line-height:1;color:var(--gold);opacity:.18;pointer-events:none;
+}
+.bigq::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:linear-gradient(90deg,var(--green-2),var(--gold),var(--gold-2));
+}
+.bigq p{
+  position:relative;margin:0;font-family:var(--head);font-weight:700;
+  font-size:clamp(24px,3.6vw,44px);line-height:1.16;letter-spacing:-.034em;color:var(--pine);
+  text-wrap:balance;
+}
+.bigq p em{font-style:normal;color:var(--green-2)}
+.bigq footer{margin-top:22px;font-size:11.4px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3)}
+
+/* ============================================================
+   PHASED ROLLOUT
+   ============================================================ */
+.phase-band{background:linear-gradient(180deg,var(--white) 0%,var(--paper) 40%,var(--white) 100%)}
+.phases{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media(max-width:1000px){.phases{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.phases{grid-template-columns:1fr}}
+.ph-rail{position:absolute;top:46px;left:0;right:0;height:2px;background:var(--line);z-index:0;display:none}
+@media(min-width:1001px){.ph-rail{display:block}}
+.ph-rail i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--green-2),var(--gold));transition:width 1.8s var(--ease)}
+.phase{
+  position:relative;z-index:1;display:flex;flex-direction:column;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:20px 20px 18px;box-shadow:var(--sh-1);overflow:hidden;
+  transition:transform .4s var(--spring),box-shadow .4s var(--ease),border-color .3s;
+}
+.phase.rv.in{transition:transform .4s var(--spring),box-shadow .4s var(--ease),border-color .3s,opacity .7s var(--ease)}
+.phase:hover{transform:translateY(-6px);box-shadow:var(--sh-2);border-color:var(--line-2)}
+.ph-top{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ph-n{
+  width:46px;height:46px;flex:none;border-radius:14px;display:grid;place-items:center;
+  font-family:var(--head);font-weight:800;font-size:15.5px;letter-spacing:-.02em;
+  background:var(--green-050);color:var(--green);border:1px solid rgba(11,81,50,.10);
+  transition:background .35s var(--ease),color .35s,box-shadow .35s,transform .45s var(--spring);
+}
+.phase:hover .ph-n{background:var(--green);color:#fff;border-color:transparent;box-shadow:0 8px 18px rgba(11,81,50,.25);transform:rotate(-5deg) scale(1.05)}
+.ph-when{font-size:10.4px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3);text-align:right;line-height:1.4}
+.phase h3{font-size:16.4px;letter-spacing:-.02em;margin-top:18px}
+.ph-amt{
+  font-family:var(--head);font-weight:800;font-size:clamp(21px,2.1vw,26px);
+  letter-spacing:-.034em;line-height:1.06;color:var(--green);margin-top:10px;font-variant-numeric:tabular-nums;
+}
+.ph-amt.soft{color:var(--ink-2);font-size:clamp(17px,1.6vw,20px);letter-spacing:-.026em}
+.phase p{margin:11px 0 18px;font-size:13.5px;line-height:1.58;color:var(--ink-2)}
+.ph-foot{margin-top:auto}
+.ph-foot .bar{height:6px}
+.ph-scale{display:flex;justify-content:space-between;gap:10px;font-size:11.2px;color:var(--ink-3);margin-top:9px;letter-spacing:.02em}
+.ph-scale b{color:var(--ink-2);font-weight:600;font-variant-numeric:tabular-nums}
+.phase.gold .ph-n{background:var(--gold-050);color:#7a6110;border-color:rgba(192,143,43,.28)}
+.phase.gold:hover .ph-n{background:var(--gold);color:var(--pine-2);box-shadow:0 8px 18px rgba(201,162,39,.3)}
+.phase.gold .ph-amt{color:#7a6110}
+.phase.gold .bar i{background:linear-gradient(90deg,var(--gold),var(--gold-2))}
+
+.close-note{
+  display:flex;gap:16px;align-items:flex-start;margin-top:clamp(22px,3vw,34px);
+  padding:22px 24px;border-radius:var(--r-lg);
+  background:linear-gradient(96deg,var(--green-050) 0%,#fff 70%);
+  border:1px solid var(--line);border-left:4px solid var(--green-2);box-shadow:var(--sh-1);
+}
+.close-note i{flex:none;width:38px;height:38px;border-radius:11px;display:grid;place-items:center;background:var(--green);color:#fff;font-size:15px;box-shadow:0 6px 14px rgba(11,81,50,.22)}
+.close-note b{display:block;font-family:var(--head);font-size:clamp(17px,1.8vw,21px);font-weight:700;letter-spacing:-.024em;line-height:1.3;color:var(--pine)}
+.close-note span{display:block;margin-top:8px;font-size:14.4px;line-height:1.65;color:var(--ink-2);max-width:70ch}
+
+/* ============================================================
+   WHAT WOULD HAVE TO BE TRUE
+   ============================================================ */
+.true-band{background:var(--paper)}
+.chk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:900px){.chk-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.chk-grid{grid-template-columns:1fr}}
+.chk{
+  position:relative;display:flex;gap:14px;align-items:flex-start;
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:17px 18px;box-shadow:var(--sh-1);overflow:hidden;
+  transition:transform .3s var(--spring),box-shadow .3s,border-color .3s;
+}
+.chk.rv.in{transition:transform .3s var(--spring),box-shadow .3s,border-color .3s,opacity .7s var(--ease)}
+.chk::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--gold);opacity:.5;transition:opacity .3s,background .3s}
+.chk:hover{transform:translateX(5px);box-shadow:var(--sh-2);border-color:var(--green-2)}
+.chk:hover::before{opacity:1;background:var(--green-2)}
+.chk>i{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--green-050);color:var(--green-2);font-size:12px;transition:background .3s,color .3s,transform .4s var(--spring)}
+.chk:hover>i{background:var(--green);color:#fff;transform:scale(1.08)}
+.chk b{display:block;font-family:var(--head);font-size:14.8px;font-weight:700;letter-spacing:-.016em;line-height:1.3;color:var(--ink)}
+.chk span{display:block;font-size:12.8px;line-height:1.5;color:var(--ink-3);margin-top:4px}
+.chk-note{margin-top:18px;background:#fff;border:1px dashed var(--line-2);border-radius:var(--r);padding:16px 20px;font-size:13.8px;color:var(--ink-2)}
+.chk-note b{color:var(--ink)}
+
+/* ============================================================
+   SOURCES / CAVEAT
+   ============================================================ */
+.sources-band{background:var(--white)}
+.sources-band .wrap{padding-top:clamp(34px,4vw,52px);padding-bottom:clamp(46px,6vw,76px)}
+.sources{background:var(--paper);border:1px dashed var(--line-2);border-radius:var(--r-lg);padding:clamp(20px,3vw,28px)}
+.sources h4{display:flex;align-items:center;gap:10px;margin:0 0 12px;font-family:var(--head);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+.sources h4 i{color:var(--gold);font-size:13px}
+.sources p{margin:0 0 12px;font-size:13.2px;line-height:1.75;color:var(--ink-2)}
+.sources p:last-child{margin-bottom:0}
+.sources b{color:var(--ink);font-weight:650}
+.sources ul{margin:0 0 12px;padding:0;list-style:none;display:grid;gap:7px}
+.sources li{display:flex;gap:10px;font-size:13.2px;line-height:1.6;color:var(--ink-2)}
+.sources li::before{content:"";flex:none;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-top:9px}
+.sources cite{font-style:normal;color:var(--ink-3)}
+
+/* ============================================================
+   CTA + FOOTER
+   ============================================================ */
+.cta-band{position:relative;background:linear-gradient(150deg,var(--pine) 0%,var(--pine-2) 80%);color:#fff;overflow:hidden;text-align:center}
+.cta-band h2{font-size:clamp(30px,4vw,52px)}
+.cta-band h2 em{font-style:normal;color:var(--gold-2)}
+.cta-band p{max-width:56ch;margin:18px auto 30px;color:rgba(255,255,255,.75)}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.cta-band .bg-photo{position:absolute;inset:0;background-image:url('assets/cta-pakistan.jpg');background-size:cover;background-position:center 55%;opacity:.22;mix-blend-mode:luminosity;pointer-events:none}
+.cta-band::after{content:"";position:absolute;inset:0;background:linear-gradient(150deg,rgba(10,61,38,.55),rgba(6,43,26,.8));pointer-events:none}
+.cta-band .wrap{position:relative;z-index:2}
+.crescent{
+  position:absolute;left:-160px;bottom:-200px;width:520px;height:520px;
+  border-radius:50%;z-index:1;pointer-events:none;
+  border:1px solid rgba(227,194,88,.14);
+  background:radial-gradient(circle,transparent 60%,rgba(227,194,88,.05) 79%,transparent 88%);
+  animation:slowspin 72s linear infinite reverse;
+}
+.crescent::before{
+  content:"";position:absolute;inset:0;border-radius:50%;
+  background:conic-gradient(from 200deg,transparent 0deg,rgba(227,194,88,.55) 62deg,rgba(255,255,255,.28) 118deg,rgba(227,194,88,.14) 176deg,transparent 232deg);
+  -webkit-mask:radial-gradient(farthest-side,transparent calc(100% - 1.6px),#000 calc(100% - 1.6px));
+          mask:radial-gradient(farthest-side,transparent calc(100% - 1.6px),#000 calc(100% - 1.6px));
+}
+.crescent::after{content:"";position:absolute;inset:70px;border-radius:50%;border:1px dashed rgba(255,255,255,.09)}
+@keyframes slowspin{to{transform:rotate(360deg)}}
+
+footer.site{background:var(--pine-2);color:rgba(255,255,255,.7);font-size:14px;border-top:1px solid rgba(255,255,255,.08)}
+footer.site .wrap{padding-top:56px;padding-bottom:34px}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.1)}
+@media(max-width:860px){.foot-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.foot-grid{grid-template-columns:1fr}}
+.foot-grid h4{color:#fff;font-family:var(--head);font-size:13px;letter-spacing:.12em;text-transform:uppercase;margin:0 0 15px}
+.foot-grid a{display:block;text-decoration:none;padding:5px 0;transition:color .2s,transform .25s var(--ease)}
+.foot-grid a:hover{color:var(--gold-2);transform:translateX(4px)}
+.foot-brand p{margin:12px 0 0;font-size:13.4px;line-height:1.7;color:rgba(255,255,255,.55)}
+.foot-legal{padding:26px 0;font-size:12.6px;color:rgba(255,255,255,.5);line-height:1.75;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-legal b{color:rgba(255,255,255,.8)}
+.foot-base{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:22px;font-size:12.8px;color:rgba(255,255,255,.45)}
+
+/* sticky mobile CTA */
+.sticky-cta{position:fixed;left:0;right:0;bottom:0;z-index:180;display:none;background:rgba(6,43,26,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid rgba(255,255,255,.14);padding:11px var(--pad);align-items:center;justify-content:space-between;gap:14px;color:#fff;transform:translateY(100%);transition:transform .4s var(--ease)}
+.sticky-cta.show{transform:none}
+.sticky-cta span{font-size:12.4px;color:rgba(255,255,255,.65)}
+.sticky-cta b{display:block;font-family:var(--head);font-size:17px;color:var(--gold-2)}
+.sticky-cta .btn{padding:11px 18px;font-size:14px}
+@media(max-width:760px){.sticky-cta{display:flex}}
+
+/* back to top */
+#toTop{position:fixed;right:20px;bottom:84px;z-index:170;width:46px;height:46px;border-radius:50%;border:0;background:var(--green);color:#fff;box-shadow:var(--sh-2);display:grid;place-items:center;opacity:0;pointer-events:none;transform:translateY(10px);transition:all .35s var(--ease)}
+@media(min-width:761px){#toTop{bottom:24px}}
+#toTop.show{opacity:1;pointer-events:auto;transform:none}
+#toTop:hover{transform:translateY(-3px);background:var(--green-2)}
+
+/* ============================================================
+   REDUCED MOTION
+   ============================================================ */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.001s!important;animation-delay:0s!important;transition-duration:.001s!important}
+  html{scroll-behavior:auto}
+  .rv,.rv-l,.rv-r,.rv-s{opacity:1;transform:none}
+  .crescent{animation:none}
+}
+
+/* ============================================================
+   ICON SIZING
+   ============================================================ */
+.ic i{line-height:1}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div id="progress" aria-hidden="true"><i></i></div>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <div class="wrap">
+    <a href="mailto:info@pakistandiasporafund.com">info@pakistandiasporafund.com</a>
+    <div class="right">
+      <span><i class="topdot"></i>Open to overseas Pakistanis in 34 countries</span>
+      <a href="index.html#registry">Registry</a>
+      <a href="index.html#faqs">FAQs</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav class="main" id="nav">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.775 5.097A9 9 0 1 0 17.775 18.903A7.3 7.3 0 1 1 17.775 5.097Z"/><path d="M18.40 4.50 19.10 6.64 21.35 6.64 19.53 7.97 20.22 10.11 18.40 8.78 16.58 10.11 17.27 7.97 15.45 6.64 17.70 6.64Z"/></svg>
+      </span>
+      <span><b>Pakistan<br>Diaspora Fund</b><small>Invest in Pakistan. Invest in Tomorrow.</small></span>
+    </a>
+    <div class="nav-links">
+      <a href="mission.html" aria-current="page">Mission</a>
+      <a href="model.html">The Model</a>
+      <a href="network.html">Knowledge Network</a>
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#commit">Commitments</a>
+      <a href="index.html#sectors">Investment Areas</a>
+      <a href="index.html#principles">Principles</a>
+      <a href="index.html#registry">Registry</a>
+      <a href="index.html#faqs">FAQs</a>
+    </div>
+    <a class="btn btn-green" href="index.html#pledge">Register Now<span class="shine"></span></a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <i class="fa-solid fa-bars" aria-hidden="true"></i>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mmenu">
+    <a href="mission.html" aria-current="page">Mission</a>
+    <a href="model.html">The Model</a>
+    <a href="network.html">Knowledge Network</a>
+    <a href="index.html#how">How it works</a>
+    <a href="index.html#commit">Commitments</a>
+    <a href="index.html#sectors">Investment Areas</a>
+    <a href="index.html#principles">Principles</a>
+    <a href="index.html#registry">Registry</a>
+    <a href="index.html#faqs">FAQs</a>
+    <a href="index.html#pledge" style="color:var(--green);font-weight:700">Register Now →</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- PAGE HERO -->
+<header class="phero" id="top">
+  <div class="phero-photo" aria-hidden="true"></div>
+  <div class="phero-grid-bg" aria-hidden="true"></div>
+  <div class="wrap">
+    <nav class="crumb" aria-label="Breadcrumb">
+      <a href="index.html">Home</a>
+      <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+      <b>Mission</b>
+    </nav>
+    <p class="eyebrow on-dark">Founder &amp; mission</p>
+    <h1>Why this platform <em>exists</em></h1>
+    <p class="lead on-dark">Countries have financed their own development with diaspora capital before — not on sentiment, but as professionally managed financial products. Pakistan has every ingredient those countries had. What it does not yet have is the one thing capital cannot be persuaded to do without.</p>
+    <div class="hchips">
+      <span class="hchip"><i class="fa-solid fa-landmark" aria-hidden="true"></i>Precedent: <b>US$54B+</b> raised since 1951</span>
+      <span class="hchip"><i class="fa-solid fa-money-bill-transfer" aria-hidden="true"></i>Pakistan: <b>US$38.3B</b> remittances, FY2025</span>
+      <span class="hchip"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i>The constraint: <b>confidence</b>, not capital</span>
+    </div>
+  </div>
+</header>
+
+<!-- THE PRECEDENT -->
+<section class="block prec-band" id="precedent">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">The precedent</p>
+      <h2>This has been done before — and done professionally</h2>
+      <p class="lead">Diaspora capital has financed national development for seventy years. The programmes that worked were not appeals to patriotism. They were institutional financial products, sold to people who happened to have a connection to the country.</p>
+    </div>
+
+    <div class="prec-grid">
+      <article class="prec rv" data-d="1">
+        <div class="prec-head">
+          <span class="fi fi-il" aria-hidden="true"></span>
+          <div><h3>Israel Bonds</h3><span class="tag">Israel &middot; launched 1951</span></div>
+        </div>
+        <div class="prec-body">
+          <div class="prec-big num">US$<span data-count="54">0</span>B<small>+ raised</small></div>
+          <p class="prec-cap">Run by the Development Corporation for Israel</p>
+          <p>The most successful diaspora investment initiative in modern history — and the reference point for every programme that followed it.</p>
+          <ul class="prec-rows">
+            <li><span>Launched</span><b class="num">1951</b></li>
+            <li><span>Raised to date</span><b class="num">US$54B+</b></li>
+            <li><span>Structure</span><b>SEC-registered offerings (US)</b></li>
+          </ul>
+        </div>
+        <div class="prec-foot">Figures as supplied by the client. See the note at the foot of this page.</div>
+      </article>
+
+      <article class="prec rv" data-d="2">
+        <div class="prec-head">
+          <span class="fi fi-in" aria-hidden="true"></span>
+          <div><h3>India's diaspora bonds</h3><span class="tag">India &middot; 1991&ndash;2000</span></div>
+        </div>
+        <div class="prec-body">
+          <div class="prec-big num"><span data-count="3">0</span> issues<small>1991 &middot; 1998 &middot; 2000</small></div>
+          <p class="prec-cap">Raised from Non-Resident Indians during periods of financial stress</p>
+          <p>India followed the same logic in its own crises — going to its diaspora when other funding was expensive or closed, and raising billions each time.</p>
+          <ul class="prec-rows">
+            <li><span>India Development Bonds</span><b class="num">1991</b></li>
+            <li><span>Resurgent India Bonds</span><b class="num">1998</b></li>
+            <li><span>India Millennium Deposits</span><b class="num">2000</b></li>
+          </ul>
+        </div>
+        <div class="prec-foot">Figures as supplied by the client. See the note at the foot of this page.</div>
+      </article>
+    </div>
+
+    <div class="prec-note rv" data-d="3">
+      <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+      <div><b>World Bank research</b> puts Israel and India together well over <b>US$35 billion</b> raised through diaspora programmes — evidence that this is an established instrument of development finance, not an experiment.</div>
+    </div>
+
+    <div class="sec-sub rv">
+      <h3>Why Israel Bonds worked</h3>
+      <p>It did not succeed because people loved the country. It succeeded because it became something a professional investor could hold: a managed institutional product with a track record.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why rv" data-d="1">
+        <div class="ic"><i class="fa-solid fa-file-contract" aria-hidden="true"></i></div>
+        <b>Registered offerings</b>
+        <span>SEC-registered offerings in the United States, sold under a recognised regulatory regime.</span>
+      </div>
+      <div class="why rv" data-d="2">
+        <div class="ic"><i class="fa-solid fa-building-columns" aria-hidden="true"></i></div>
+        <b>Strong institutional trust</b>
+        <span>An issuer investors could name, examine, and hold to a standard.</span>
+      </div>
+      <div class="why rv" data-d="3">
+        <div class="ic"><i class="fa-solid fa-people-group" aria-hidden="true"></i></div>
+        <b>Consistent diaspora engagement</b>
+        <span>Decades of continuous relationship, not a campaign run once in an emergency.</span>
+      </div>
+      <div class="why rv" data-d="4">
+        <div class="ic"><i class="fa-solid fa-layer-group" aria-hidden="true"></i></div>
+        <b>Multiple product tiers</b>
+        <span>Entry points for small savers and for institutions, in the same programme.</span>
+      </div>
+      <div class="why rv" data-d="5">
+        <div class="ic"><i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i></div>
+        <b>A reliable repayment history</b>
+        <span>Obligations met on schedule — the record that makes the next issue easier than the last.</span>
+      </div>
+      <div class="why rv" data-d="6">
+        <div class="ic"><i class="fa-solid fa-bolt" aria-hidden="true"></i></div>
+        <b>Capital mobilised fast in a crisis</b>
+        <span>When funding was needed quickly, the channel already existed and was trusted.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE INGREDIENTS -->
+<section class="block ing-band" id="ingredients">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">The ingredients</p>
+      <h2>Pakistan already has what those programmes started with</h2>
+      <p class="lead">A large, dispersed, high-earning diaspora, and a flow of money home that is already among the largest in the world. The raw material is not in question.</p>
+    </div>
+
+    <div class="stat-grid">
+      <div class="stat rv-s" data-d="1">
+        <div class="ic"><i class="fa-solid fa-earth-americas" aria-hidden="true"></i></div>
+        <b class="num">9&ndash;10 <small>Million</small></b>
+        <span>Overseas Pakistanis across the US, UK, Canada, Europe and the Gulf</span>
+        <cite>As stated by the client</cite>
+      </div>
+      <div class="stat rv-s" data-d="2">
+        <div class="ic"><i class="fa-solid fa-money-bill-transfer" aria-hidden="true"></i></div>
+        <b class="num">$<span data-count="38.3" data-dec="1">0.0</span><small>Billion</small></b>
+        <span>Record remittances in FY2025</span>
+        <cite>State Bank of Pakistan, FY2025</cite>
+      </div>
+      <div class="stat rv-s" data-d="3">
+        <div class="ic"><i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i></div>
+        <b class="num">+<span data-count="26.6" data-dec="1">0.0</span>%</b>
+        <span>Year-on-year growth in remittances</span>
+        <cite>State Bank of Pakistan, FY2025</cite>
+      </div>
+      <div class="stat rv-s" data-d="4">
+        <div class="ic"><i class="fa-solid fa-user-doctor" aria-hidden="true"></i></div>
+        <b class="num"><span data-count="32000">0</span></b>
+        <span>Pakistani-American physicians, approximately</span>
+        <cite>Estimate as supplied by the client</cite>
+      </div>
+      <div class="stat rv-s" data-d="5">
+        <div class="ic"><i class="fa-solid fa-sack-dollar" aria-hidden="true"></i></div>
+        <b class="num">$<span data-count="200">0</span>B<small>+</small></b>
+        <span>Estimated combined net worth of that group alone</span>
+        <cite>Estimate as supplied by the client</cite>
+      </div>
+      <div class="stat rv-s" data-d="6">
+        <div class="ic"><i class="fa-solid fa-arrow-right-to-bracket" aria-hidden="true"></i></div>
+        <b class="num">$<span data-count="30">0</span>B<small>+ / year</small></b>
+        <span>Already received in remittances, every year</span>
+        <cite>As stated by the client</cite>
+      </div>
+    </div>
+
+    <div class="redirect">
+      <div class="rv-l">
+        <h3>The money already comes home. It just doesn't stay to build anything.</h3>
+        <p>Pakistan receives <b>more than US$30 billion a year</b> in remittances. Almost all of it is consumed — it pays school fees, rent, medical bills and weddings, and it does so honourably.</p>
+        <p>Redirecting even a <b>small share</b> of that annual flow into structured, long-term investment — with governance, terms and reporting attached — would be transformational. Not a new source of money. A different destination for money that already moves.</p>
+      </div>
+      <figure class="redirect-fig rv-r">
+        <img src="assets/case-islamabad.jpg" alt="Islamabad seen from the Margalla Hills" loading="lazy" onerror="this.closest('figure').style.display='none'">
+        <figcaption>Islamabad — the capital that borrows abroad while its diaspora sends US$30B+ home each year</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- THE OBSTACLE -->
+<section class="block obs-band" id="obstacle">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow on-dark">The honest obstacle</p>
+      <h2>The constraint is not money.<br>It is confidence.</h2>
+      <p class="lead on-dark">This is the part that cannot be marketed around, so it is stated plainly. Overseas Pakistanis are not short of capital and they are not short of attachment. What they are short of is a reason to believe the terms they invest under today will still exist in five years' time.</p>
+    </div>
+
+    <div class="obs-grid">
+      <div class="obs rv" data-d="1">
+        <div class="ic"><i class="fa-solid fa-anchor" aria-hidden="true"></i></div>
+        <b>Political stability</b>
+        <span>Uncertainty about how long any political settlement holds, and what follows it.</span>
+      </div>
+      <div class="obs rv" data-d="2">
+        <div class="ic"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></div>
+        <b>The legal system</b>
+        <span>Questions about the independence of the courts and the predictability of their decisions.</span>
+      </div>
+      <div class="obs rv" data-d="3">
+        <div class="ic"><i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i></div>
+        <b>Policy reversals</b>
+        <span>Frequent reversals with each change of government — terms that do not survive an election.</span>
+      </div>
+      <div class="obs rv" data-d="4">
+        <div class="ic"><i class="fa-solid fa-gavel" aria-hidden="true"></i></div>
+        <b>Investor protection</b>
+        <span>Weak protection for investors and slow, uncertain enforcement of contracts.</span>
+      </div>
+      <div class="obs rv" data-d="5">
+        <div class="ic"><i class="fa-solid fa-right-left" aria-hidden="true"></i></div>
+        <b>Foreign exchange</b>
+        <span>Concerns about repatriating capital and returns, and about the terms on which that is allowed.</span>
+      </div>
+      <div class="obs rv" data-d="6">
+        <div class="ic"><i class="fa-solid fa-building-columns" aria-hidden="true"></i></div>
+        <b>Institutional credibility</b>
+        <span>No institution yet carrying the credibility that money of this size would require.</span>
+      </div>
+    </div>
+
+    <div class="obs-split">
+      <div class="obs-side rv" data-d="1">
+        <span class="k">Sending money home</span>
+        <p>An act of family. It asks nothing of any institution.</p>
+        <small>Remittances arrive whatever the courts do, whatever the policy is this year. That is precisely why record remittances are not evidence of investor confidence.</small>
+      </div>
+      <div class="obs-side gold rv" data-d="2">
+        <span class="k">Investing millions</span>
+        <p>An act of underwriting. It asks everything of them.</p>
+        <small>A ten-year commitment is a bet on courts, contracts, currency rules and the durability of terms. Sending money to family is a different decision from investing millions.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="quote-band">
+  <div class="wrap">
+    <blockquote class="bigq rv">
+      <p>Money is unlikely to be the biggest obstacle. <em>Confidence is.</em></p>
+      <footer>The premise this platform is built on</footer>
+    </blockquote>
+  </div>
+</section>
+
+<!-- THE RESPONSE: CONDITIONAL AND PHASED -->
+<section class="block phase-band" id="phased">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">The response</p>
+      <h2>Therefore: conditional, and phased</h2>
+      <p class="lead">Two design decisions follow directly from that constraint. First, the registry records commitments that <b>activate only when conditions hold</b> — no money moves before then. Second, the ambition is staged: nothing in the later phases is promised by the earlier ones, and each phase has to be earned.</p>
+    </div>
+
+    <div class="phases">
+      <div class="ph-rail" aria-hidden="true"><i id="phRail"></i></div>
+
+      <article class="phase rv" data-d="1">
+        <div class="ph-top">
+          <span class="ph-n num">01</span>
+          <span class="ph-when">Prove it can<br>be raised</span>
+        </div>
+        <h3>A limited first raise</h3>
+        <div class="ph-amt num">US$500M &ndash; $1B</div>
+        <p>Raised from a limited group of early investors — deliberately small, deliberately selective, and sized so it can be governed properly from day one.</p>
+        <div class="ph-foot">
+          <span class="bar"><i data-w="5"></i></span>
+          <div class="ph-scale"><span>Share of long-run ambition</span><b>~5%</b></div>
+        </div>
+      </article>
+
+      <article class="phase gold rv" data-d="2">
+        <div class="ph-top">
+          <span class="ph-n num">02</span>
+          <span class="ph-when">Prove it can<br>be run</span>
+        </div>
+        <h3>Governance, returns, transparency</h3>
+        <div class="ph-amt soft">Several years of record</div>
+        <p>No new capital sought on promises. The task of this phase is evidence: audited accounts, returns delivered as described, and disclosure that holds up to outside scrutiny.</p>
+        <div class="ph-foot">
+          <span class="bar"><i data-w="5"></i></span>
+          <div class="ph-scale"><span>Scale held while proving</span><b>~5%</b></div>
+        </div>
+      </article>
+
+      <article class="phase rv" data-d="3">
+        <div class="ph-top">
+          <span class="ph-n num">03</span>
+          <span class="ph-when">Scale on<br>evidence</span>
+        </div>
+        <h3>Scale the programme</h3>
+        <div class="ph-amt num">US$5 billion</div>
+        <p>Only once the first phases have a track record does the programme open more widely — to investors who can now examine a history rather than a projection.</p>
+        <div class="ph-foot">
+          <span class="bar"><i data-w="25"></i></span>
+          <div class="ph-scale"><span>Share of long-run ambition</span><b>~25%</b></div>
+        </div>
+      </article>
+
+      <article class="phase rv" data-d="4">
+        <div class="ph-top">
+          <span class="ph-n num">04</span>
+          <span class="ph-when">Expand as<br>trust grows</span>
+        </div>
+        <h3>Expand toward full scale</h3>
+        <div class="ph-amt num">US$15 &ndash; 20 billion</div>
+        <p>The long-run ambition, reached only as confidence grows — and reached by the same mechanism that built it: performance that can be inspected.</p>
+        <div class="ph-foot">
+          <span class="bar"><i data-w="100"></i></span>
+          <div class="ph-scale"><span>Share of long-run ambition</span><b>100%</b></div>
+        </div>
+      </article>
+    </div>
+
+    <div class="close-note rv">
+      <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i>
+      <div>
+        <b>Confidence follows performance — not the other way round.</b>
+        <span>A well-run, transparent pilot attracts more capital than an ambitious promise. That is the whole strategy: start smaller than the opportunity, prove the institution, and let the record do the persuading.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WOULD HAVE TO BE TRUE -->
+<section class="block true-band" id="conditions">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">The conditions</p>
+      <h2>What would make it work</h2>
+      <p class="lead">Not aspirations — the specific, checkable conditions under which the capital recorded in this registry becomes investable. Each one is a question an investor will ask before a single rupee moves.</p>
+    </div>
+
+    <div class="chk-grid">
+      <div class="chk rv" data-d="1"><i class="fa-solid fa-check" aria-hidden="true"></i><div><b>Investments protected by law</b><span>Protection written into statute, not offered as assurance</span></div></div>
+      <div class="chk rv" data-d="2"><i class="fa-solid fa-check" aria-hidden="true"></i><div><b>Enforceable contracts</b><span>Agreements that can be relied on and, if necessary, enforced</span></div></div>
+      <div class="chk rv" data-d="3"><i class="fa-solid fa-check" aria-hidden="true"></i><div><b>Independent courts</b><span>Decisions that turn on the law rather than on the parties</span></div></div>
+      <div class="chk rv" data-d="4"><i class="fa-solid fa-check" aria-hidden="true"></i><div><b>Secure property rights</b><span>Ownership that holds, and transfers cleanly</span></div></div>
+      <div class="chk rv" data-d="5"><i class="fa-solid fa-check" aria-hidden="true"></i><div><b>Professional fund management</b><span>Managed to institutional standards by people accountable for it</span></div></div>
+      <div class="chk rv" data-d="6"><i class="fa-solid fa-check" aria-hidden="true"></i><div><b>Transparent audits</b><span>Independent audit, published — not summarised</span></div></div>
+      <div class="chk rv" data-d="7"><i class="fa-solid fa-check" aria-hidden="true"></i><div><b>Terms that survive a change of government</b><span>Investment terms that outlast the administration that agreed them</span></div></div>
+    </div>
+
+    <p class="chk-note rv"><b>Until these hold, nothing moves.</b> Every commitment recorded through this platform is conditional by design, non-binding, and revocable at any time. No funds are collected or transferred.</p>
+  </div>
+</section>
+
+<!-- SOURCES / CAVEAT -->
+<section class="sources-band">
+  <div class="wrap">
+    <div class="sources rv">
+      <h4><i class="fa-solid fa-circle-info" aria-hidden="true"></i>Sources and caveat</h4>
+      <p>Every figure on this page is reproduced <b>as supplied by the client</b> and is attributed here to the source the client stated. None of it has been independently verified by this platform. <b>All figures should be verified, sourced and dated before launch</b>, and this note replaced with full citations.</p>
+      <ul>
+        <li><span><b>Israel Bonds</b> — launched 1951, run by the Development Corporation for Israel; more than US$54 billion raised; SEC-registered offerings in the United States. <cite>As stated by the client.</cite></span></li>
+        <li><span><b>India</b> — India Development Bonds (1991), Resurgent India Bonds (1998), India Millennium Deposits (2000); billions raised from Non-Resident Indians. <cite>As stated by the client.</cite></span></li>
+        <li><span><b>US$35 billion+ combined</b> for Israel and India through diaspora programmes. <cite>Attributed by the client to World Bank research; specific publication and year to be confirmed.</cite></span></li>
+        <li><span><b>US$38.3 billion remittances in FY2025, up 26.6% year on year</b>, and more than US$30 billion received annually. <cite>Attributed to State Bank of Pakistan reporting, FY2025.</cite></span></li>
+        <li><span><b>9&ndash;10 million overseas Pakistanis</b>; approximately <b>32,000 Pakistani-American physicians</b> with estimated combined net worth over <b>US$200 billion</b>. <cite>Client estimates; the net-worth figure in particular is an estimate and should be treated as such.</cite></span></li>
+        <li><span><b>Phased targets</b> (US$500M&ndash;$1B, US$5B, US$15&ndash;20B) are the client's stated ambition. They are targets, not forecasts, projections, or commitments of any kind.</span></li>
+      </ul>
+      <p>Nothing on this page is an offer to sell or a solicitation to buy any security, and nothing here constitutes investment advice.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="block cta-band">
+  <div class="bg-photo" aria-hidden="true"></div>
+  <div class="crescent" aria-hidden="true"></div>
+  <div class="wrap">
+    <h2 class="rv">The capital is ready.<br><em>Record what would move it.</em></h2>
+    <p class="rv" data-d="1">If the conditions on this page were met, what would you commit — and on what terms? Registering takes a few minutes, no money changes hands, and you can withdraw at any time.</p>
+    <div class="cta-btns rv" data-d="2">
+      <a class="btn btn-gold" href="index.html#pledge">Register your commitment<span class="arr">→</span><span class="shine"></span></a>
+      <a class="btn btn-ghost" href="index.html#principles">See the seven principles</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="index.html" style="color:#fff">
+          <span class="mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.775 5.097A9 9 0 1 0 17.775 18.903A7.3 7.3 0 1 1 17.775 5.097Z"/><path d="M18.40 4.50 19.10 6.64 21.35 6.64 19.53 7.97 20.22 10.11 18.40 8.78 16.58 10.11 17.27 7.97 15.45 6.64 17.70 6.64Z"/></svg></span>
+          <span><b>Pakistan<br>Diaspora Fund</b><small style="color:rgba(255,255,255,.5)">Invest in Pakistan. Invest in Tomorrow.</small></span>
+        </a>
+        <p>A public registry of conditional investment commitments from overseas Pakistanis.</p>
+      </div>
+      <div>
+        <h4>Registry</h4>
+        <a href="index.html#how">How it works</a>
+        <a href="index.html#sectors">Investment areas</a>
+        <a href="index.html#principles">Principles</a>
+        <a href="index.html#registry">Recent entries</a>
+        <a href="mission.html">Mission</a>
+        <a href="model.html">The Model</a>
+        <a href="network.html">Knowledge Network</a>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <a href="mailto:info@pakistandiasporafund.com">Email us</a>
+        <a href="mailto:press@pakistandiasporafund.com">Press enquiries</a>
+        <a href="mailto:partners@pakistandiasporafund.com">Partnerships</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="#">Privacy policy</a>
+        <a href="#">Terms of use</a>
+        <a href="#">Disclosures</a>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <b>No funds are collected or transferred through this platform.</b> Every pledge recorded here is a non-binding, good-faith statement of intent. It does not constitute a financial transaction, a contract, a security, or an offer to invest. <b>Not affiliated with the Government of Pakistan</b> or with any political party, state institution, or licensed financial entity. Aggregate figures published on this site are self-reported by registrants and are not independently audited.
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Pakistan Diaspora Fund</span>
+      <span>Registry opened 14 August 2026</span>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY CTA (mobile) -->
+<div class="sticky-cta" id="stickyCta">
+  <div><span>Conditional commitments</span><b class="num">$2.54B</b></div>
+  <a class="btn btn-gold" href="index.html#pledge">Register now<span class="shine"></span></a>
+</div>
+
+<button id="toTop" aria-label="Back to top"><i class="fa-solid fa-arrow-up" aria-hidden="true"></i></button>
+
+<script>
+(function(){
+"use strict";
+var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+var $  = function(s,c){return (c||document).querySelector(s);};
+var $$ = function(s,c){return [].slice.call((c||document).querySelectorAll(s));};
+
+function fmt(n){return n.toLocaleString('en-US');}
+
+/* ---------- COUNTERS ---------- */
+function countUp(el){
+  var target=parseFloat(el.getAttribute('data-count')||'0');
+  var dec=parseInt(el.getAttribute('data-dec')||'0',10);
+  if(reduce){el.textContent=dec?target.toFixed(dec):fmt(target);return;}
+  var t0=null, dur=1500;
+  function tick(t){
+    if(!t0)t0=t;
+    var p=Math.min((t-t0)/dur,1);
+    var e=1-Math.pow(1-p,3);
+    var v=target*e;
+    el.textContent=dec?v.toFixed(dec):fmt(Math.round(v));
+    if(p<1)requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+/* ---------- REVEAL ON SCROLL ---------- */
+var seen=new WeakSet();
+var io=new IntersectionObserver(function(entries){
+  entries.forEach(function(en){
+    if(!en.isIntersecting)return;
+    var el=en.target;
+    el.classList.add('in');
+    $$('[data-count]',el).forEach(function(c){
+      if(!seen.has(c)){seen.add(c);countUp(c);}
+    });
+    if(el.hasAttribute('data-count')&&!seen.has(el)){seen.add(el);countUp(el);}
+    $$('.bar i[data-w]',el).forEach(function(b){b.style.width=b.getAttribute('data-w')+'%';});
+    if(el.classList.contains('phases')){var r=$('#phRail');if(r)r.style.width='100%';}
+    io.unobserve(el);
+  });
+},{threshold:.18,rootMargin:'0px 0px -40px 0px'});
+$$('.rv,.rv-l,.rv-r,.rv-s,.phases').forEach(function(el){io.observe(el);});
+
+/* hero counters run on load, they are above the fold */
+$$('.phero [data-count]').forEach(function(c){
+  if(!seen.has(c)){seen.add(c);setTimeout(function(){countUp(c);},reduce?0:500);}
+});
+
+/* ---------- NAV / SCROLL ---------- */
+var nav=$('#nav'), prog=$('#progress i'), toTop=$('#toTop'), sticky=$('#stickyCta');
+function onScroll(){
+  var y=window.scrollY||document.documentElement.scrollTop;
+  nav.classList.toggle('scrolled',y>10);
+  var h=document.documentElement.scrollHeight-window.innerHeight;
+  prog.style.transform='scaleX('+(h?y/h:0)+')';
+  toTop.classList.toggle('show',y>700);
+  if(sticky)sticky.classList.toggle('show',y>600);
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+onScroll();
+toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:reduce?'auto':'smooth'});});
+
+/* ---------- BURGER ---------- */
+var burger=$('#burger'), mmenu=$('#mmenu');
+burger.addEventListener('click',function(){
+  var open=mmenu.classList.toggle('open');
+  burger.setAttribute('aria-expanded',String(open));
+});
+$$('a',mmenu).forEach(function(a){a.addEventListener('click',function(){mmenu.classList.remove('open');burger.setAttribute('aria-expanded','false');});});
+})();
+</script>
+</body>
+</html>
