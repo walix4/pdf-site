@@ -103,51 +103,72 @@ h3{font-size:19px}
 [data-d="10"]{transition-delay:.8s}
 
 /* ============================================================
-   TOPBAR + NAV
+   TOPBAR + NAV  — shared across every page
    ============================================================ */
-.topbar{background:var(--pine-2);color:rgba(255,255,255,.85);font-size:12.8px}
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:8px;padding-bottom:8px}
-.topbar a{text-decoration:none;opacity:.9;transition:opacity .2s}
+.topbar{background:var(--pine-2);color:rgba(255,255,255,.72);font-size:12.4px;position:relative;z-index:210}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:9px;padding-bottom:9px}
+.topbar a{text-decoration:none;opacity:.85;transition:opacity .2s,color .2s}
 .topbar a:hover{opacity:1;color:var(--gold-2)}
-.topbar .right{display:flex;gap:18px}
+.topbar .right{display:flex;align-items:center;gap:20px}
 .topdot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold);margin-right:8px;animation:pulse 2.4s infinite}
-@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(201,162,39,.45)}55%{box-shadow:0 0 0 7px rgba(201,162,39,0)}}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(192,143,43,.45)}55%{box-shadow:0 0 0 7px rgba(192,143,43,0)}}
 
-nav.main{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,box-shadow .3s,background .3s}
-nav.main.scrolled{border-color:var(--line);box-shadow:0 6px 24px rgba(12,24,17,.06)}
-nav.main .wrap{display:flex;align-items:center;gap:26px;padding-top:14px;padding-bottom:14px}
-.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto}
-.brand .mark{width:42px;height:42px;border-radius:11px;background:radial-gradient(120% 120% at 20% 15%,var(--green-2),var(--pine) 68%);display:grid;place-items:center;color:#fff;box-shadow:var(--sh-1);transition:transform .35s var(--spring)}
-.brand:hover .mark{transform:rotate(-6deg) scale(1.06)}
-.brand b{font-family:var(--head);font-size:16.5px;line-height:1.15;letter-spacing:-.02em;display:block}
-.brand small{display:block;font-size:10.6px;color:var(--ink-3);letter-spacing:.05em;font-weight:500}
-.nav-links{display:flex;gap:4px}
-.nav-links a{position:relative;text-decoration:none;font-size:14.2px;font-weight:500;color:var(--ink-2);padding:8px 12px;border-radius:8px;transition:color .2s,background .2s}
+nav.main{
+  position:sticky;top:0;z-index:200;
+  background:rgba(255,255,255,.92);
+  -webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);
+  border-bottom:1px solid transparent;
+  transition:border-color .3s,box-shadow .3s,background .3s
+}
+nav.main::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(192,143,43,.5),transparent);opacity:0;transition:opacity .35s}
+nav.main.scrolled{background:rgba(255,255,255,.97);border-color:var(--line);box-shadow:0 8px 28px rgba(12,24,17,.07)}
+nav.main.scrolled::after{opacity:1}
+nav.main .wrap{display:flex;align-items:center;gap:18px;padding-top:11px;padding-bottom:11px}
+
+/* brand lockup */
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto;flex:none}
+.brand img{height:38px;width:auto;display:block;transition:transform .4s var(--spring)}
+.brand:hover img{transform:scale(1.05)}
+.brand .wm{display:block;line-height:1;border-left:1px solid var(--line);padding-left:12px}
+.brand b{display:block;font-family:var(--head);font-size:15px;font-weight:700;letter-spacing:-.022em;color:var(--ink);white-space:nowrap}
+.brand small{display:block;font-size:10.2px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--gold);margin-top:4px;white-space:nowrap}
+@media(max-width:1300px){.brand .wm{display:none}}
+
+/* links */
+.nav-links{display:flex;align-items:center;gap:2px;flex:none}
+.nav-links a{
+  position:relative;white-space:nowrap;text-decoration:none;
+  font-size:13.6px;font-weight:500;color:var(--ink-2);
+  padding:9px 12px;border-radius:9px;transition:color .2s,background .2s
+}
 .nav-links a:hover{color:var(--green);background:var(--green-050)}
-.nav-links a::after{content:"";position:absolute;left:12px;right:12px;bottom:3px;height:2px;background:var(--gold);border-radius:2px;transform:scaleX(0);transform-origin:0 50%;transition:transform .3s var(--ease)}
+.nav-links a::after{
+  content:"";position:absolute;left:12px;right:12px;bottom:4px;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,var(--gold),var(--gold-2));
+  transform:scaleX(0);transform-origin:0 50%;transition:transform .3s var(--ease)
+}
 .nav-links a:hover::after{transform:scaleX(1)}
 .nav-links a[aria-current="page"]{color:var(--green);font-weight:600}
 .nav-links a[aria-current="page"]::after{transform:scaleX(1)}
-.burger{display:none;background:none;border:1px solid var(--line);border-radius:10px;width:42px;height:42px;place-items:center}
-.nav-links a{white-space:nowrap}
-nav.main>.wrap>.btn{white-space:nowrap;flex:none}
-/* nine site-wide links need more room than the six on the homepage: the full
-   row is shown only at the container's full width, and hands over to the
-   mobile menu below it. Brand mark, wordmark and CTA keep their positions. */
-@media(min-width:1220px){
-  nav.main .wrap{gap:16px}
-  .brand small{display:none}
-  .nav-links{gap:0}
-  .nav-links a{font-size:13px;padding:8px 6px}
-  .nav-links a::after{left:6px;right:6px}
+
+nav.main .btn-green{padding:11px 20px;border-radius:10px;font-size:14px;white-space:nowrap;flex:none}
+
+.burger{display:none;background:#fff;border:1px solid var(--line);border-radius:10px;width:44px;height:44px;place-items:center;flex:none;color:var(--ink)}
+.burger:hover{border-color:var(--line-2)}
+@media(max-width:1120px){
+  .nav-links{display:none}.burger{display:grid}
+  .topbar .right span:first-child{display:none}
+  .brand .wm{display:block}
 }
-@media(max-width:1219px){.nav-links{display:none}.burger{display:grid}}
-@media(max-width:960px){.topbar .right span:first-child{display:none}}
-.mobile-menu{display:none;border-top:1px solid var(--line);background:#fff}
+@media(max-width:520px){.brand .wm{display:none}.brand img{height:34px}}
+
+.mobile-menu{display:none;border-top:1px solid var(--line);background:#fff;position:relative;z-index:199}
 .mobile-menu.open{display:block;animation:menuDrop .3s var(--ease)}
 @keyframes menuDrop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
-.mobile-menu a{display:block;padding:13px var(--pad);text-decoration:none;font-weight:500;border-bottom:1px solid var(--paper-2)}
-.mobile-menu a[aria-current="page"]{color:var(--green);font-weight:700;background:var(--green-050)}
+.mobile-menu a{display:block;padding:14px var(--pad);text-decoration:none;font-weight:500;color:var(--ink-2);border-bottom:1px solid var(--paper-2)}
+.mobile-menu a:hover{background:var(--paper);color:var(--green)}
+.mobile-menu a[aria-current="page"]{color:var(--green);font-weight:600;box-shadow:inset 3px 0 0 var(--gold)}
 
 /* ============================================================
    BUTTONS
@@ -214,17 +235,6 @@ nav.main>.wrap>.btn{white-space:nowrap;flex:none}
 }
 @keyframes auraA{from{transform:translate3d(0,0,0) scale(1)}to{transform:translate3d(-5%,6%,0) scale(1.14)}}
 @keyframes auraB{from{transform:translate3d(0,0,0) scale(1.08)}to{transform:translate3d(7%,-5%,0) scale(.92)}}
-.hero-grid-bg{
-  position:absolute;inset:0;z-index:3;pointer-events:none;
-  background-image:
-    linear-gradient(rgba(255,255,255,.052) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.052) 1px,transparent 1px),
-    linear-gradient(rgba(255,255,255,.022) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.022) 1px,transparent 1px);
-  background-size:132px 132px,132px 132px,33px 33px,33px 33px;
-  -webkit-mask-image:radial-gradient(92% 74% at 16% 20%,#000 0%,rgba(0,0,0,.5) 46%,transparent 84%);
-          mask-image:radial-gradient(92% 74% at 16% 20%,#000 0%,rgba(0,0,0,.5) 46%,transparent 84%);
-}
 .crescent{
   position:absolute;right:-140px;top:-140px;width:520px;height:520px;
   border-radius:50%;z-index:3;pointer-events:none;
@@ -902,21 +912,16 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
 <nav class="main" id="nav">
   <div class="wrap">
     <a class="brand" href="index.html">
-      <span class="mark" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.775 5.097A9 9 0 1 0 17.775 18.903A7.3 7.3 0 1 1 17.775 5.097Z"/><path d="M18.40 4.50 19.10 6.64 21.35 6.64 19.53 7.97 20.22 10.11 18.40 8.78 16.58 10.11 17.27 7.97 15.45 6.64 17.70 6.64Z"/></svg>
-      </span>
-      <span><b>Pakistan<br>Diaspora Fund</b><small>Invest in Pakistan. Invest in Tomorrow.</small></span>
+      <img src="assets/mark.png" alt="Pakistan Diaspora Fund" width="120" height="63">
+      <span class="wm"><b>Pakistan Diaspora Fund</b><small>Invest · Build · Prosper</small></span>
     </a>
     <div class="nav-links">
+      <a href="index.html#how">How it works</a>
+      <a href="index.html#commit">Commit</a>
+      <a href="index.html#sectors">Sectors</a>
       <a href="mission.html">Mission</a>
       <a href="model.html">The Model</a>
-      <a href="network.html" aria-current="page">Knowledge Network</a>
-      <a href="index.html#how">How it works</a>
-      <a href="index.html#commit">Commitments</a>
-      <a href="index.html#sectors">Investment Areas</a>
-      <a href="index.html#principles">Principles</a>
-      <a href="index.html#registry">Registry</a>
-      <a href="index.html#faqs">FAQs</a>
+      <a href="network.html" aria-current="page">Network</a>
     </div>
     <a class="btn btn-green" href="index.html#pledge">Register Now<span class="shine"></span></a>
     <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
@@ -924,15 +929,13 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
     </button>
   </div>
   <div class="mobile-menu" id="mmenu">
+    <a href="index.html#how">How it works</a>
+    <a href="index.html#commit">Commit</a>
+    <a href="index.html#sectors">Sectors</a>
     <a href="mission.html">Mission</a>
     <a href="model.html">The Model</a>
-    <a href="network.html" aria-current="page">Knowledge Network</a>
-    <a href="index.html#how">How it works</a>
-    <a href="index.html#commit">Commitments</a>
-    <a href="index.html#sectors">Investment Areas</a>
-    <a href="index.html#principles">Principles</a>
+    <a href="network.html" aria-current="page">Network</a>
     <a href="index.html#registry">Registry</a>
-    <a href="index.html#faqs">FAQs</a>
     <a href="index.html#pledge" style="color:var(--green);font-weight:700">Register Now →</a>
   </div>
 </nav>
@@ -945,7 +948,6 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
 <header class="hero" id="top">
   <div class="hero-photo" aria-hidden="true"></div>
   <div class="hero-aura" aria-hidden="true"></div>
-  <div class="hero-grid-bg" aria-hidden="true"></div>
   <div class="crescent" aria-hidden="true"></div>
 
   <div class="wrap hero-inner">
