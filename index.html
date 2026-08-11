@@ -300,13 +300,6 @@ nav.main .btn-green{padding:11px 20px;border-radius:10px;font-size:14px;white-sp
   font-style:normal;position:relative;white-space:nowrap;color:var(--gold-2);
   color:var(--gold-2);
 }
-.hero h1 em i{
-  position:absolute;left:-.04em;right:-.04em;bottom:.06em;height:.17em;z-index:-1;
-  background:linear-gradient(90deg,rgba(201,162,39,.42),rgba(227,194,88,.16));
-  border-radius:100px;font-style:normal;
-  transform:scaleX(0);transform-origin:0 50%;
-  animation:underline .8s var(--ease) 1.05s forwards;
-}
 @keyframes underline{to{transform:scaleX(1)}}
 
 /* --- lead, CTAs, note --- */
@@ -459,69 +452,8 @@ nav.main .btn-green{padding:11px 20px;border-radius:10px;font-size:14px;white-sp
   .hero-badge .dot,.live-pill i{animation:none}
   .hero-aura::before,.hero-aura::after{transform:none}
   .hero h1 .w{transform:none;animation:none}
-  .hero h1 em i{transform:none;animation:none}
-  .hero-badge,.hero p.lead,.hero-ctas,.hero-note,.hero-card{opacity:1;animation:none;transform:none}
+    .hero-badge,.hero p.lead,.hero-ctas,.hero-note,.hero-card{opacity:1;animation:none;transform:none}
 }
-
-/* ============================================================
-   STATS BAND
-   ============================================================ */
-.stats{background:linear-gradient(180deg,var(--paper-2) 0%,var(--paper) 30%,var(--white) 100%)}
-.stats .wrap{padding-top:clamp(40px,5vw,64px);padding-bottom:clamp(44px,5.4vw,70px)}
-.stat-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
-@media(max-width:1080px){.stat-grid{grid-template-columns:repeat(3,1fr);gap:14px}}
-@media(max-width:640px){.stat-grid{grid-template-columns:repeat(2,1fr);gap:10px}}
-.stat{
-  position:relative;isolation:isolate;overflow:hidden;
-  display:flex;flex-direction:column;
-  background:var(--white);border:1px solid var(--line);border-radius:var(--r);
-  padding:18px 17px 17px;box-shadow:var(--sh-1);
-  transition:transform .4s var(--spring),box-shadow .4s var(--ease),border-color .3s var(--ease)
-}
-.stat::before{
-  content:"";position:absolute;top:0;left:0;height:2px;width:32px;border-radius:0 2px 2px 0;
-  background:linear-gradient(90deg,var(--gold),var(--gold-2));
-  transition:width .5s var(--ease)
-}
-.stat::after{
-  content:"";position:absolute;inset:0;z-index:-1;opacity:0;
-  background:radial-gradient(120% 100% at 0% 0%,var(--green-050),transparent 58%);
-  transition:opacity .4s var(--ease)
-}
-.stat:hover{transform:translateY(-5px);box-shadow:var(--sh-2);border-color:var(--line-2)}
-.stat:hover::before{width:100%}
-.stat:hover::after{opacity:1}
-.stat .ic{
-  width:34px;height:34px;border-radius:9px;display:grid;place-items:center;margin:0 0 14px;
-  background:var(--green-050);color:var(--green);border:1px solid rgba(11,81,50,.09);
-  transition:background .35s var(--ease),color .35s var(--ease),border-color .35s,
-             box-shadow .35s,transform .45s var(--spring)
-}
-.stat:hover .ic{
-  background:var(--green);color:var(--white);border-color:transparent;
-  box-shadow:0 6px 14px rgba(11,81,50,.24);transform:translateY(-1px) scale(1.06)
-}
-.stat .ic i{font-size:14.5px;line-height:1}
-.stat b{
-  display:block;font-family:var(--head);font-weight:800;
-  font-size:clamp(22px,2.05vw,27px);line-height:1.04;letter-spacing:-.032em;color:var(--ink);
-  font-variant-numeric:tabular-nums
-}
-.stat b>span{display:inline}
-.stat b small{
-  display:inline-block;font-size:.4em;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--ink-3);white-space:nowrap;vertical-align:.28em;margin-left:.2em
-}
-.stat>span{
-  position:relative;display:block;margin-top:13px;padding-top:12px;
-  font-size:12.2px;line-height:1.42;color:var(--ink-3)
-}
-.stat>span::before{
-  content:"";position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(90deg,var(--line-2) 0,var(--line-2) 18px,var(--line) 18px);
-  transition:background .35s var(--ease)
-}
-.stat:hover>span::before{background:linear-gradient(90deg,var(--gold) 0,var(--gold) 18px,var(--line) 18px)}
 
 /* ============================================================
    SECTION SHELL
@@ -1075,6 +1007,11 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
 .cta-band p{max-width:56ch;margin:18px auto 30px;color:rgba(255,255,255,.75)}
 .cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
+.foot-logo{align-items:center;gap:14px;margin-right:0}
+.foot-logo img{height:46px;width:auto}
+.foot-logo .wm{display:block!important;border-left:1px solid rgba(255,255,255,.18);padding-left:14px}
+.foot-logo .wm b{color:#fff;font-size:15.4px}
+.foot-logo .wm small{color:var(--gold-2);font-size:10px;letter-spacing:.13em}
 footer.site{background:var(--pine-2);color:rgba(255,255,255,.7);font-size:14px;border-top:1px solid rgba(255,255,255,.08)}
 footer.site .wrap{padding-top:56px;padding-bottom:34px}
 .foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:32px;padding-bottom:34px;border-bottom:1px solid rgba(255,255,255,.1)}
@@ -1205,9 +1142,9 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
       <h1>
         <span class="ln"><span class="w">Overseas Pakistanis</span></span>
         <span class="ln"><span class="w">united to invest in</span></span>
-        <span class="ln"><span class="w"><em>Pakistan's future<i></i></em></span></span>
+        <span class="ln"><span class="w"><em>Pakistan's future</em></span></span>
       </h1>
-      <p class="lead on-dark">A global platform where overseas Pakistanis register their investment commitments, expertise, and long-term support for Pakistan’s economic revival — from a second home to IT, healthcare, telecom and job creation. Nothing is collected or transferred; the commitment itself is the point.</p>
+      <p class="lead on-dark">A global platform where overseas Pakistanis register investment commitments and expertise for Pakistan’s economic revival. Nothing is collected or transferred.</p>
       <div class="hero-ctas">
         <a class="btn btn-gold" href="#pledge">Register your commitment<span class="arr">→</span><span class="shine"></span></a>
         <a class="btn btn-ghost" href="#sectors">View investment categories</a>
@@ -1261,15 +1198,7 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
       <h2>Investment categories</h2>
       <p class="lead on-dark">The sectors overseas Pakistanis are committing to. Amounts shown are totals already recorded by other registrants — you choose your own in the registration form below.</p>
     </div>
-    <div class="sector-grid" id="sectorGrid"></div>      <button type="button" id="sectorClear">Clear selection</button>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<section class="stats">
-  <div class="wrap">
-    <div class="stat-grid" id="statGrid"></div>
+    <div class="sector-grid" id="sectorGrid"></div>
   </div>
 </section>
 
@@ -1520,9 +1449,9 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <a class="brand" href="#top" style="color:#fff">
-          <span class="mark"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.775 5.097A9 9 0 1 0 17.775 18.903A7.3 7.3 0 1 1 17.775 5.097Z"/><path d="M18.40 4.50 19.10 6.64 21.35 6.64 19.53 7.97 20.22 10.11 18.40 8.78 16.58 10.11 17.27 7.97 15.45 6.64 17.70 6.64Z"/></svg></span>
-          <span><b>Pakistan<br>Diaspora Fund</b><small style="color:rgba(255,255,255,.5)">Invest in Pakistan. Invest in Tomorrow.</small></span>
+        <a class="brand foot-logo" href="index.html">
+          <img src="assets/mark-light.png" alt="Pakistan Diaspora Fund" width="227" height="120">
+          <span class="wm"><b>Pakistan Diaspora Fund</b><small>Invest · Build · Prosper</small></span>
         </a>
         <p>A public registry of conditional investment commitments from overseas Pakistanis.</p>
       </div>
@@ -1604,14 +1533,6 @@ var CROSS=fa('fa-xmark');
 
 /* ---------- DATA ---------- */
 var COUNTRIES=['United States','United Kingdom','Canada','United Arab Emirates','Saudi Arabia','Qatar','Kuwait','Oman','Bahrain','Australia','Germany','Norway','Sweden','Denmark','Netherlands','France','Spain','Italy','Malaysia','Japan','South Korea','South Africa','Turkey','Other'];
-var BSTATS=[
-  [I.target,'$<span data-count="10">0</span> <small>BILLION</small>','Target over 5 years'],
-  [I.people,'<span data-count="1000000"></span>+','Overseas Pakistanis mobilised'],
-  [I.globe,'<span data-count="34">0</span>','Countries represented'],
-  [I.case_,'<span data-count="500000"></span>+','Jobs targeted'],
-  [I.homes,'<span data-count="50000"></span>+','Homes pledged'],
-  [I.bank,'$<span data-count="2.5" data-dec="1">0</span> <small>BILLION+</small>','Bank deposits pledged']
-];
 var STEPS=[
   {n:'01',t:'Register your commitment',
    d:'Eight fields, two minutes. Your name, where you live, the sectors, and the amount. No documents.',
@@ -1716,16 +1637,6 @@ function money(n){return '$'+fmt(n);}
   t.innerHTML=half+half;
 })();
 
-/* ---------- STATS ---------- */
-(function(){
-  var g=$('#statGrid');
-  BSTATS.forEach(function(s,i){
-    var d=document.createElement('div');
-    d.className='stat rv-s'; d.setAttribute('data-d',String(i+1));
-    d.innerHTML='<div class="ic">'+s[0]+'</div><b class="num">'+s[1]+'</b><span>'+s[2]+'</span>';
-    g.appendChild(d);
-  });
-})();
 
 /* ---------- STEPS ---------- */
 (function(){
