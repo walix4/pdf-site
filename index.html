@@ -30,8 +30,8 @@
   --green-2:#0E7C4A;
   --green-050:#EAF4EE;
 
-  --gold:#C08F2B;
-  --gold-2:#E8CE8C;
+  --gold:#E0A82E;
+  --gold-2:#FFD24A;
   --gold-050:#FAF3E2;
   --red:#9B2226;
 
@@ -298,11 +298,7 @@ nav.main .btn-green{padding:11px 20px;border-radius:10px;font-size:14px;white-sp
 @keyframes wordRise{to{transform:translateY(0)}}
 .hero h1 em{
   font-style:normal;position:relative;white-space:nowrap;color:var(--gold-2);
-  background:linear-gradient(176deg,#FFFFFF 0%,#F4E6C0 42%,var(--gold-2) 100%);
-  -webkit-background-clip:text;background-clip:text;
-}
-@supports((-webkit-background-clip:text) or (background-clip:text)){
-  .hero h1 em{-webkit-text-fill-color:transparent}
+  color:var(--gold-2);
 }
 .hero h1 em i{
   position:absolute;left:-.04em;right:-.04em;bottom:.06em;height:.17em;z-index:-1;
@@ -392,11 +388,7 @@ nav.main .btn-green{padding:11px 20px;border-radius:10px;font-size:14px;white-sp
   font-family:var(--head);font-weight:800;font-size:clamp(42px,4.7vw,58px);
   letter-spacing:-.038em;line-height:.92;font-variant-numeric:tabular-nums;
   color:var(--gold-2);
-  background:linear-gradient(176deg,#FFFFFF 0%,#F4E6C0 40%,var(--gold-2) 100%);
-  -webkit-background-clip:text;background-clip:text;
-}
-@supports((-webkit-background-clip:text) or (background-clip:text)){
-  .hc-big{-webkit-text-fill-color:transparent}
+  color:var(--gold-2);
 }
 .hc-big small{
   display:inline-block;font-size:.36em;font-weight:700;letter-spacing:.11em;margin-left:9px;
@@ -1285,6 +1277,38 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
   <div class="marquee" aria-hidden="true"><div class="mq-fade"><div class="track" id="mqTrack"></div></div></div>
 </header>
 
+<!-- COMMITMENT TYPES -->
+<section class="block commit-band" id="commit">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <p class="eyebrow">Register your commitment</p>
+      <h2>Choose how you would commit</h2>
+      <p class="lead">Select every option you would consider. Your choices carry down to the registration form below. Nothing is collected, transferred, or owed.</p>
+    </div>
+    <div class="commit-grid" id="commitGrid"></div>
+    <div class="commit-bar rv" id="commitBar">
+      <div class="msg" id="commitMsg">No commitment types selected yet.</div>
+      <button type="button" id="commitClear">Clear selection</button>
+    </div>
+  </div>
+</section>
+
+<!-- SECTORS -->
+<section class="block sectors-band" id="sectors">
+  <div class="wrap" style="position:relative">
+    <div class="sec-head rv">
+      <p class="eyebrow on-dark">Invest in sectors that build Pakistan</p>
+      <h2>Investment categories</h2>
+      <p class="lead on-dark">Select the sectors you would invest in — your choices carry down to the pledge form. Amounts shown are totals already committed by other registrants.</p>
+    </div>
+    <div class="sector-grid" id="sectorGrid"></div>
+    <div class="sector-bar rv" id="sectorBar">
+      <div class="msg" id="sectorMsg">No sectors selected.</div>
+      <button type="button" id="sectorClear">Clear selection</button>
+    </div>
+  </div>
+</section>
+
 <!-- STATS -->
 <section class="stats">
   <div class="wrap">
@@ -1341,38 +1365,6 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
         </div>
         <div class="cp-foot">Remittance figures from published State Bank of Pakistan reporting. Registry figures are self-reported and not independently audited.</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- COMMITMENT TYPES -->
-<section class="block commit-band" id="commit">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <p class="eyebrow">Register your commitment</p>
-      <h2>Choose how you would commit</h2>
-      <p class="lead">Select every option you would consider. Your choices carry down to the registration form below. Nothing is collected, transferred, or owed.</p>
-    </div>
-    <div class="commit-grid" id="commitGrid"></div>
-    <div class="commit-bar rv" id="commitBar">
-      <div class="msg" id="commitMsg">No commitment types selected yet.</div>
-      <button type="button" id="commitClear">Clear selection</button>
-    </div>
-  </div>
-</section>
-
-<!-- SECTORS -->
-<section class="block sectors-band" id="sectors">
-  <div class="wrap" style="position:relative">
-    <div class="sec-head rv">
-      <p class="eyebrow on-dark">Invest in sectors that build Pakistan</p>
-      <h2>Investment categories</h2>
-      <p class="lead on-dark">Select the sectors you would invest in — your choices carry down to the pledge form. Amounts shown are totals already committed by other registrants.</p>
-    </div>
-    <div class="sector-grid" id="sectorGrid"></div>
-    <div class="sector-bar rv" id="sectorBar">
-      <div class="msg" id="sectorMsg">No sectors selected.</div>
-      <button type="button" id="sectorClear">Clear selection</button>
     </div>
   </div>
 </section>
