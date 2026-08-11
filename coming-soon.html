@@ -25,7 +25,7 @@
 *,*::before,*::after{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
 body{
-  margin:0;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column;
+  margin:0;height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden;
   background:var(--pine-2);color:#fff;
   font-family:var(--body);font-size:16px;line-height:1.6;
   -webkit-font-smoothing:antialiased;overflow-x:hidden;
@@ -56,15 +56,6 @@ a{color:inherit}
     linear-gradient(180deg,rgba(6,43,26,.72) 0%,rgba(6,43,26,.20) 34%,rgba(6,43,26,.30) 62%,rgba(6,43,26,.80) 100%),
     radial-gradient(120% 86% at 50% 34%,rgba(12,24,17,0) 40%,rgba(12,24,17,.52) 100%);
 }
-.grid-bg{
-  position:absolute;inset:0;z-index:2;pointer-events:none;
-  background-image:
-    linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
-  background-size:120px 120px;
-  -webkit-mask-image:radial-gradient(84% 70% at 50% 26%,#000 0%,rgba(0,0,0,.45) 48%,transparent 84%);
-          mask-image:radial-gradient(84% 70% at 50% 26%,#000 0%,rgba(0,0,0,.45) 48%,transparent 84%);
-}
 .aura{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
 .aura::before,.aura::after{content:"";position:absolute;aspect-ratio:1;border-radius:50%}
 .aura::before{
@@ -82,8 +73,8 @@ a{color:inherit}
 
 .wrap{
   position:relative;z-index:4;width:100%;max-width:1040px;
-  margin:0 auto;padding:clamp(28px,5vw,52px) clamp(20px,5vw,48px);
-  flex:1;display:flex;flex-direction:column;
+  margin:0 auto;padding:clamp(16px,2.6vh,34px) clamp(20px,5vw,48px);
+  flex:1;min-height:0;display:flex;flex-direction:column;
 }
 
 /* ---------- brand ---------- */
@@ -97,21 +88,21 @@ a{color:inherit}
 .brand small{display:block;font-size:11.4px;color:rgba(255,255,255,.58);letter-spacing:.02em;margin-top:2px}
 
 /* ---------- centre ---------- */
-.core{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:clamp(20px,3vw,40px) 0}
+.core{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0}
 .logo{
-  width:clamp(230px,30vw,368px);height:auto;display:block;
-  margin:0 auto clamp(26px,3.6vw,40px);
+  width:clamp(180px,min(26vw,30vh),330px);height:auto;display:block;
+  margin:0 auto clamp(16px,2.6vh,32px);
   filter:drop-shadow(0 18px 40px rgba(6,43,26,.6));
   animation:logoIn 1s var(--ease) both;
 }
 @keyframes logoIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
-h1{font-size:clamp(28px,4.6vw,48px)!important}
+h1{font-size:clamp(25px,min(4.4vw,5.4vh),46px)!important}
 .badge{
   display:inline-flex;align-items:center;gap:9px;
   background:linear-gradient(140deg,rgba(232,206,140,.16),rgba(255,255,255,.05));
   border:1px solid rgba(232,206,140,.34);color:var(--gold-2);
   font-size:11.2px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  padding:8px 17px;border-radius:100px;margin-bottom:26px;
+  padding:7px 16px;border-radius:100px;margin-bottom:clamp(14px,2vh,24px);
   box-shadow:0 1px 0 rgba(255,255,255,.1) inset;
 }
 .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex:none;animation:pulse 2.2s infinite}
@@ -129,14 +120,14 @@ h1 .gold{
 }
 @supports((-webkit-background-clip:text) or (background-clip:text)){h1 .gold{-webkit-text-fill-color:transparent}}
 .lead{
-  margin:24px auto 0;max-width:58ch;font-size:clamp(15px,1.6vw,17.5px);
-  color:rgba(255,255,255,.82);line-height:1.66;
+  margin:clamp(12px,2vh,22px) auto 0;max-width:56ch;font-size:clamp(14px,1.5vw,16.6px);
+  color:rgba(255,255,255,.82);line-height:1.6;
 }
 
 /* ---------- countdown ---------- */
-.cd{display:flex;justify-content:center;gap:clamp(8px,1.8vw,18px);margin:clamp(34px,5vw,52px) 0 0;flex-wrap:wrap}
+.cd{display:flex;justify-content:center;gap:clamp(7px,1.6vw,16px);margin:clamp(20px,3.4vh,44px) 0 0;flex-wrap:wrap}
 .cd-unit{
-  position:relative;min-width:clamp(74px,15vw,124px);padding:clamp(16px,2.4vw,24px) clamp(10px,2vw,18px);
+  position:relative;min-width:clamp(68px,14vw,116px);padding:clamp(12px,1.9vh,22px) clamp(10px,2vw,18px);
   border-radius:16px;border:1px solid rgba(255,255,255,.14);
   background:linear-gradient(158deg,rgba(255,255,255,.13) 0%,rgba(255,255,255,.05) 46%,rgba(6,43,26,.32) 100%),rgba(6,43,26,.42);
   -webkit-backdrop-filter:blur(14px) saturate(1.15);backdrop-filter:blur(14px) saturate(1.15);
@@ -148,7 +139,7 @@ h1 .gold{
 }
 .cd-num{
   display:block;font-family:var(--head);font-weight:800;
-  font-size:clamp(30px,6vw,54px);line-height:1;letter-spacing:-.04em;
+  font-size:clamp(26px,min(5.6vw,6.4vh),50px);line-height:1;letter-spacing:-.04em;
   font-variant-numeric:tabular-nums;
   background:linear-gradient(176deg,#FFFFFF 0%,#F4E6C0 44%,var(--gold-2) 100%);
   -webkit-background-clip:text;background-clip:text;
@@ -159,7 +150,7 @@ h1 .gold{
   letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.56);
 }
 .cd-when{
-  margin-top:22px;font-size:13px;color:rgba(255,255,255,.62);
+  margin-top:clamp(12px,2vh,20px);font-size:12.6px;color:rgba(255,255,255,.62);
   display:inline-flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:center;
 }
 .cd-when i{color:var(--gold-2);font-size:12px}
@@ -172,31 +163,14 @@ h1 .gold{
 .live-msg .btn{margin-top:20px}
 @keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
-/* ---------- points ---------- */
-.pts{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:clamp(38px,5vw,56px) 0 0;width:100%;max-width:860px}
-@media(max-width:700px){.pts{grid-template-columns:1fr}}
-.pt{
-  display:flex;gap:13px;align-items:flex-start;text-align:left;
-  padding:16px 17px;border-radius:14px;
-  border:1px solid rgba(255,255,255,.11);
-  background:linear-gradient(158deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
-  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
-}
-.pt i{
-  flex:none;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;font-size:14px;
-  color:var(--gold-2);background:linear-gradient(150deg,rgba(232,206,140,.2),rgba(232,206,140,.05));
-  border:1px solid rgba(232,206,140,.28);
-}
-.pt b{display:block;font-family:var(--head);font-size:13.8px;font-weight:700;letter-spacing:-.012em;line-height:1.3}
-.pt span{display:block;font-size:12.4px;color:rgba(255,255,255,.6);margin-top:3px;line-height:1.5}
 
 /* ---------- footer ---------- */
 .foot{
-  position:relative;z-index:4;border-top:1px solid rgba(232,206,140,.2);
+  position:relative;z-index:4;flex:none;border-top:1px solid rgba(232,206,140,.2);
   background:linear-gradient(180deg,rgba(12,24,17,.3),rgba(12,24,17,.55));
 }
 .foot-in{
-  max-width:1040px;margin:0 auto;padding:18px clamp(20px,5vw,48px);
+  max-width:1040px;margin:0 auto;padding:clamp(11px,1.6vh,17px) clamp(20px,5vw,48px);
   display:flex;flex-wrap:wrap;align-items:center;gap:14px;justify-content:space-between;
   font-size:12.8px;color:rgba(255,255,255,.6);
 }
@@ -215,7 +189,6 @@ h1 .gold{
 <div class="stage">
   <div class="photo" aria-hidden="true"></div>
   <div class="aura" aria-hidden="true"></div>
-  <div class="grid-bg" aria-hidden="true"></div>
 
   <div class="wrap">
     <main class="core" id="core">
@@ -239,12 +212,6 @@ h1 .gold{
       <div class="live-msg" id="liveMsg">
         <h2 style="font-family:var(--head);font-size:clamp(22px,3vw,32px);letter-spacing:-.03em;margin:0">Pakistan Zindabad — we are live.</h2>
         <p class="lead" style="margin-top:12px">The registry is open. Record your commitment today.</p>
-      </div>
-
-      <div class="pts">
-        <div class="pt"><i class="fa-solid fa-file-signature" aria-hidden="true"></i><span><b>Record a commitment</b><span>Eight fields, two minutes. No documents, no transfer.</span></span></div>
-        <div class="pt"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i><span><b>Tied to seven principles</b><span>Rule of law, democracy, an independent judiciary.</span></span></div>
-        <div class="pt"><i class="fa-solid fa-chart-column" aria-hidden="true"></i><span><b>Published in public</b><span>A citable dataset of capital waiting on conditions.</span></span></div>
       </div>
     </main>
   </div>
