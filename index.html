@@ -1295,7 +1295,7 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
       <span class="status-pill"><i></i>Not yet met</span>
     </div>
     <div class="prin-list" id="prinList"></div>
-    <p class="prin-foot rv">All seven must hold at once. Until then, every pledge stays exactly where it is — no single institution decides, and the registry publishes its assessment with sources.</p>
+    <p class="prin-foot rv">All seven must hold at once. Until then, every pledge stays exactly where it is. No single institution decides — the registry publishes its assessment with sources, and any pledger may amend or withdraw at any time.</p>
   </div>
 </section>
 
@@ -1837,10 +1837,6 @@ function toggleSector(n){
     d.innerHTML='<div class="ic">'+c[0]+'</div><div><b>'+c[1]+'</b><span>Not yet met</span></div>';
     l.appendChild(d);
   });
-  var n=document.createElement('div');
-  n.className='prin-note rv'; n.setAttribute('data-d','8');
-  n.textContent='No single institution determines when a principle is met. The registry publishes its assessment with sources, and any pledger may amend or withdraw a commitment at any time, without explanation.';
-  l.appendChild(n);
 })();
 
 /* ---------- COMPARE ---------- */
