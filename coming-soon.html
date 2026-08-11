@@ -43,18 +43,23 @@ a{color:inherit}
     linear-gradient(168deg,var(--pine) 0%,var(--pine) 18%,var(--pine-2) 88%);
 }
 .photo{
-  position:absolute;inset:0;z-index:0;pointer-events:none;
-  background:url('assets/hero-pakistan.jpg') center 62%/cover;
-  opacity:.62;mix-blend-mode:luminosity;
-  filter:grayscale(.3) contrast(1.14) brightness(1.02);
-  -webkit-mask-image:radial-gradient(140% 92% at 60% 108%,#000 0%,rgba(0,0,0,.9) 34%,rgba(0,0,0,.42) 66%,transparent 92%);
-          mask-image:radial-gradient(140% 92% at 60% 108%,#000 0%,rgba(0,0,0,.9) 34%,rgba(0,0,0,.42) 66%,transparent 92%);
+  position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+  opacity:.82;mix-blend-mode:luminosity;
+  -webkit-mask-image:radial-gradient(160% 118% at 52% 96%,#000 0%,rgba(0,0,0,.96) 48%,rgba(0,0,0,.62) 78%,rgba(0,0,0,.2) 100%);
+          mask-image:radial-gradient(160% 118% at 52% 96%,#000 0%,rgba(0,0,0,.96) 48%,rgba(0,0,0,.62) 78%,rgba(0,0,0,.2) 100%);
+}
+/* the source is small, so lean into it: soft focus reads as depth of field, not low resolution */
+.photo video,.photo img{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) scale(1.12);
+  min-width:100%;min-height:100%;width:auto;height:auto;object-fit:cover;
+  filter:blur(1.1px) saturate(.92) contrast(1.05) brightness(1.12);
 }
 .stage::before{
   content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
   background:
-    linear-gradient(180deg,rgba(6,43,26,.72) 0%,rgba(6,43,26,.20) 34%,rgba(6,43,26,.30) 62%,rgba(6,43,26,.80) 100%),
-    radial-gradient(120% 86% at 50% 34%,rgba(12,24,17,0) 40%,rgba(12,24,17,.52) 100%);
+    linear-gradient(180deg,rgba(6,43,26,.78) 0%,rgba(6,43,26,.34) 30%,rgba(6,43,26,.30) 58%,rgba(6,43,26,.72) 100%),
+    radial-gradient(72% 52% at 50% 40%,rgba(6,43,26,.62) 0%,rgba(6,43,26,.18) 62%,transparent 100%),
+    radial-gradient(130% 92% at 50% 36%,rgba(12,24,17,0) 46%,rgba(12,24,17,.5) 100%);
 }
 .aura{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
 .aura::before,.aura::after{content:"";position:absolute;aspect-ratio:1;border-radius:50%}
@@ -127,7 +132,7 @@ h1 .gold{
 /* ---------- countdown ---------- */
 .cd{display:flex;justify-content:center;gap:clamp(7px,1.6vw,16px);margin:clamp(20px,3.4vh,44px) 0 0;flex-wrap:wrap}
 .cd-unit{
-  position:relative;min-width:clamp(68px,14vw,116px);padding:clamp(12px,1.9vh,22px) clamp(10px,2vw,18px);
+  position:relative;min-width:clamp(76px,15vw,128px);padding:clamp(14px,2.2vh,26px) clamp(12px,2.2vw,22px);
   border-radius:16px;border:1px solid rgba(255,255,255,.14);
   background:linear-gradient(158deg,rgba(255,255,255,.13) 0%,rgba(255,255,255,.05) 46%,rgba(6,43,26,.32) 100%),rgba(6,43,26,.42);
   -webkit-backdrop-filter:blur(14px) saturate(1.15);backdrop-filter:blur(14px) saturate(1.15);
@@ -139,16 +144,18 @@ h1 .gold{
 }
 .cd-num{
   display:block;font-family:var(--head);font-weight:800;
-  font-size:clamp(26px,min(5.6vw,6.4vh),50px);line-height:1;letter-spacing:-.04em;
+  font-size:clamp(28px,min(6vw,7vh),56px);line-height:1;letter-spacing:-.045em;
   font-variant-numeric:tabular-nums;
   background:linear-gradient(176deg,#FFFFFF 0%,#F4E6C0 44%,var(--gold-2) 100%);
   -webkit-background-clip:text;background-clip:text;
 }
 @supports((-webkit-background-clip:text) or (background-clip:text)){.cd-num{-webkit-text-fill-color:transparent}}
 .cd-lab{
-  display:block;margin-top:9px;font-size:9.6px;font-weight:700;
+  display:block;margin-top:10px;font-size:10px;font-weight:700;
   letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.56);
 }
+.cd-rule{width:min(300px,62%);height:1px;margin:clamp(16px,2.4vh,26px) auto 0;
+  background:linear-gradient(90deg,transparent,rgba(232,206,140,.55),transparent)}
 .cd-when{
   margin-top:clamp(12px,2vh,20px);font-size:12.6px;color:rgba(255,255,255,.62);
   display:inline-flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:center;
@@ -200,7 +207,9 @@ h1 .gold{
 .eq b:nth-child(3){height:9px;animation-delay:.36s}
 .eq b:nth-child(4){height:14px;animation-delay:.54s}
 @keyframes eq{0%,100%{transform:scaleY(.42)}50%{transform:scaleY(1)}}
-@media (prefers-reduced-motion: reduce){.snd.blocked,.eq b{animation:none}}
+@media (prefers-reduced-motion: reduce){
+  .photo video{display:none}
+  .photo{background:url('assets/mosque-poster.jpg') center/cover}.snd.blocked,.eq b{animation:none}}
 
 /* ---------- footer ---------- */
 .foot{
@@ -225,7 +234,10 @@ h1 .gold{
 <body>
 
 <div class="stage">
-  <div class="photo" aria-hidden="true"></div>
+  <div class="photo" aria-hidden="true">
+    <video id="bgv" autoplay muted loop playsinline preload="auto"
+           poster="assets/mosque-poster.jpg"><source src="assets/mosque.mp4" type="video/mp4"></video>
+  </div>
   <div class="aura" aria-hidden="true"></div>
 
   <div class="wrap">
@@ -245,6 +257,7 @@ h1 .gold{
         <div class="cd-unit"><span class="cd-num" id="cdM">00</span><span class="cd-lab">Minutes</span></div>
         <div class="cd-unit"><span class="cd-num" id="cdS">00</span><span class="cd-lab">Seconds</span></div>
       </div>
+      <div class="cd-rule" aria-hidden="true"></div>
       <p class="cd-when"><span class="fi fi-pk" aria-hidden="true"></span><i class="fa-solid fa-calendar-day" aria-hidden="true"></i>14 August 2026 · 00:00 PKT · Pakistan Independence Day</p>
 
       <div class="live-msg" id="liveMsg">
