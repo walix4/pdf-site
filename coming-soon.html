@@ -17,7 +17,7 @@
 <style>
 :root{
   --pine:#0A3D26; --pine-2:#062B1A; --green:#0B5132; --green-2:#0E7C4A;
-  --gold:#C08F2B; --gold-2:#E8CE8C;
+  --gold:#E0A82E; --gold-2:#FFD24A;
   --head:"Inter Tight",-apple-system,"Segoe UI",Roboto,sans-serif;
   --body:"Inter",-apple-system,"Segoe UI",Roboto,sans-serif;
   --ease:cubic-bezier(.22,.7,.16,1); --spring:cubic-bezier(.34,1.45,.5,1);
@@ -122,12 +122,14 @@ h1{
   font-size:clamp(36px,7.4vw,76px);line-height:1;letter-spacing:-.038em;
   text-shadow:0 1px 0 rgba(12,24,17,.2),0 18px 44px rgba(6,43,26,.5);
 }
-h1 .gold{
-  display:block;
-  background:linear-gradient(176deg,#FFFFFF 0%,#F4E6C0 42%,var(--gold-2) 100%);
-  -webkit-background-clip:text;background-clip:text;
-}
-@supports((-webkit-background-clip:text) or (background-clip:text)){h1 .gold{-webkit-text-fill-color:transparent}}
+h1 .gold{display:block;color:var(--gold-2)}
+.rot{position:relative;display:block;overflow:hidden;min-height:1.06em}
+.rot .w{display:inline-block;will-change:transform,opacity}
+.rot .w.out{animation:rotOut .36s var(--ease) forwards}
+.rot .w.in{animation:rotIn .7s var(--ease) forwards}
+@keyframes rotOut{to{opacity:0;transform:translateY(-38%);filter:blur(4px)}}
+@keyframes rotIn{from{opacity:0;transform:translateY(38%);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+@media (prefers-reduced-motion: reduce){.rot .w.out,.rot .w.in{animation:none;opacity:1;transform:none;filter:none}}
 .lead{
   margin:clamp(12px,2vh,22px) auto 0;max-width:56ch;font-size:clamp(14px,1.5vw,16.6px);
   color:rgba(255,255,255,.82);line-height:1.6;
@@ -150,10 +152,8 @@ h1 .gold{
   display:block;font-family:var(--head);font-weight:800;
   font-size:clamp(28px,min(6vw,7vh),56px);line-height:1;letter-spacing:-.045em;
   font-variant-numeric:tabular-nums;
-  background:linear-gradient(176deg,#FFFFFF 0%,#F4E6C0 44%,var(--gold-2) 100%);
-  -webkit-background-clip:text;background-clip:text;
+  color:var(--gold-2);
 }
-@supports((-webkit-background-clip:text) or (background-clip:text)){.cd-num{-webkit-text-fill-color:transparent}}
 .cd-lab{
   display:block;margin-top:10px;font-size:10px;font-weight:700;
   letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.56);
@@ -252,7 +252,7 @@ h1 .gold{
 
       <span class="badge"><span class="dot"></span>Launching on Pakistan's 79th Independence Day</span>
 
-      <h1>Something is being<br><span class="gold">built for Pakistan</span></h1>
+      <h1>Something is being<br><span class="gold rot" id="rot" aria-live="polite"><span class="w">built for Pakistan</span></span></h1>
 
       <p class="lead">A public registry where overseas Pakistanis record what they would invest, in which sectors, and on what terms. No funds are collected or transferred — the commitment itself is the point.</p>
 
@@ -289,6 +289,24 @@ h1 .gold{
 </footer>
 
 <script>
+/* ---- rotating headline ---- */
+(function(){
+  var box=document.getElementById('rot'); if(!box) return;
+  var lines=['built for Pakistan','built on trust','built to outlast politics','built by ten million of us'];
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var i=0;
+  setInterval(function(){
+    var cur=box.querySelector('.w'); if(!cur) return;
+    cur.classList.add('out');
+    setTimeout(function(){
+      i=(i+1)%lines.length;
+      var next=document.createElement('span');
+      next.className='w in'; next.textContent=lines[i];
+      box.replaceChild(next,cur);
+    },330);
+  },3800);
+})();
+
 /* ---- backdrop slideshow: crossfade through four Pakistani landmarks ---- */
 (function(){
   var s=[].slice.call(document.querySelectorAll('.photo .slide'));
