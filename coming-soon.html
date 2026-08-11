@@ -99,19 +99,21 @@ a{color:inherit}
 /* ---------- centre ---------- */
 .core{flex:1;min-height:0;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:0}
 .logo{
-  width:clamp(180px,min(26vw,30vh),330px);height:auto;display:block;
-  margin:0 auto clamp(16px,2.6vh,32px);
+  width:clamp(150px,min(21vw,24vh),270px);height:auto;display:block;
+  margin:0 auto clamp(10px,1.6vh,20px);
   filter:drop-shadow(0 18px 40px rgba(6,43,26,.6));
   animation:logoIn 1s var(--ease) both;
 }
 @keyframes logoIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
-h1{font-size:clamp(25px,min(4.4vw,5.4vh),46px)!important}
+h1{font-size:clamp(23px,min(3.9vw,4.8vh),42px)!important;text-wrap:balance}
+h1 .gold{display:block;line-height:1.04;margin:.05em 0}
+h1 .tail{display:block;font-size:.5em;font-weight:600;letter-spacing:-.015em;line-height:1.24;color:rgba(255,255,255,.86);margin-top:.26em}
 .badge{
   display:inline-flex;align-items:center;gap:9px;
   background:linear-gradient(140deg,rgba(232,206,140,.16),rgba(255,255,255,.05));
   border:1px solid rgba(232,206,140,.34);color:var(--gold-2);
   font-size:11.2px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
-  padding:7px 16px;border-radius:100px;margin-bottom:clamp(14px,2vh,24px);
+  padding:6px 14px;border-radius:100px;margin-bottom:clamp(10px,1.5vh,18px);
   box-shadow:0 1px 0 rgba(255,255,255,.1) inset;
 }
 .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);flex:none;animation:pulse 2.2s infinite}
@@ -129,16 +131,15 @@ h1 .gold{display:block;color:var(--gold-2)}
 .rot .w.in{animation:rotIn .7s var(--ease) forwards}
 @keyframes rotOut{to{opacity:0;transform:translateY(-38%);filter:blur(4px)}}
 @keyframes rotIn{from{opacity:0;transform:translateY(38%);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
-@media (prefers-reduced-motion: reduce){.rot .w.out,.rot .w.in{animation:none;opacity:1;transform:none;filter:none}}
 .lead{
-  margin:clamp(12px,2vh,22px) auto 0;max-width:56ch;font-size:clamp(14px,1.5vw,16.6px);
-  color:rgba(255,255,255,.82);line-height:1.6;
+  margin:clamp(10px,1.5vh,16px) auto 0;max-width:62ch;font-size:clamp(13px,1.25vw,15px);
+  color:rgba(255,255,255,.8);line-height:1.55;
 }
 
 /* ---------- countdown ---------- */
-.cd{display:flex;justify-content:center;gap:clamp(7px,1.6vw,16px);margin:clamp(20px,3.4vh,44px) 0 0;flex-wrap:wrap}
+.cd{display:flex;justify-content:center;gap:clamp(7px,1.4vw,14px);margin:clamp(14px,2.2vh,28px) 0 0;flex-wrap:wrap}
 .cd-unit{
-  position:relative;min-width:clamp(76px,15vw,128px);padding:clamp(14px,2.2vh,26px) clamp(12px,2.2vw,22px);
+  position:relative;min-width:clamp(70px,13vw,112px);padding:clamp(11px,1.7vh,20px) clamp(10px,1.8vw,18px);
   border-radius:16px;border:1px solid rgba(255,255,255,.14);
   background:linear-gradient(158deg,rgba(255,255,255,.13) 0%,rgba(255,255,255,.05) 46%,rgba(6,43,26,.32) 100%),rgba(6,43,26,.42);
   -webkit-backdrop-filter:blur(14px) saturate(1.15);backdrop-filter:blur(14px) saturate(1.15);
@@ -150,7 +151,7 @@ h1 .gold{display:block;color:var(--gold-2)}
 }
 .cd-num{
   display:block;font-family:var(--head);font-weight:800;
-  font-size:clamp(28px,min(6vw,7vh),56px);line-height:1;letter-spacing:-.045em;
+  font-size:clamp(25px,min(5vw,5.8vh),46px);line-height:1;letter-spacing:-.045em;
   font-variant-numeric:tabular-nums;
   color:var(--gold-2);
 }
@@ -158,10 +159,10 @@ h1 .gold{display:block;color:var(--gold-2)}
   display:block;margin-top:10px;font-size:10px;font-weight:700;
   letter-spacing:.17em;text-transform:uppercase;color:rgba(255,255,255,.56);
 }
-.cd-rule{width:min(300px,62%);height:1px;margin:clamp(16px,2.4vh,26px) auto 0;
+.cd-rule{width:min(280px,58%);height:1px;margin:clamp(10px,1.6vh,18px) auto 0;
   background:linear-gradient(90deg,transparent,rgba(232,206,140,.55),transparent)}
 .cd-when{
-  margin-top:clamp(12px,2vh,20px);font-size:12.6px;color:rgba(255,255,255,.62);
+  margin-top:clamp(9px,1.3vh,15px);font-size:12px;color:rgba(255,255,255,.62);
   display:inline-flex;align-items:center;gap:9px;flex-wrap:wrap;justify-content:center;
 }
 .cd-when i{color:var(--gold-2);font-size:12px}
@@ -174,6 +175,43 @@ h1 .gold{display:block;color:var(--gold-2)}
 .live-msg .btn{margin-top:20px}
 @keyframes up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
 
+
+/* ---------- principles strip ---------- */
+.prin-strip{
+  width:100%;max-width:960px;margin:clamp(11px,1.7vh,20px) auto 0;
+  padding:clamp(10px,1.5vh,16px) clamp(14px,2vw,24px);
+  border-radius:14px;border:1px solid rgba(255,255,255,.13);
+  background:linear-gradient(158deg,rgba(255,255,255,.09),rgba(6,43,26,.34));
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  box-shadow:0 1px 0 rgba(255,255,255,.1) inset
+}
+.prin-strip h2{
+  margin:0 0 clamp(8px,1.2vh,12px);font-family:var(--head);
+  font-size:clamp(10px,1.05vw,12.4px);font-weight:700;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--gold-2);text-align:center
+}
+.prin-strip ul{list-style:none;margin:0;padding:0;display:flex;align-items:flex-start}
+.prin-strip li{
+  flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;
+  padding:0 clamp(4px,.8vw,10px);text-align:center;position:relative
+}
+.prin-strip li+li::before{
+  content:"";position:absolute;left:0;top:2px;bottom:2px;width:1px;
+  background:linear-gradient(180deg,transparent,rgba(255,255,255,.18),transparent)
+}
+.prin-strip i{font-size:clamp(14px,1.5vw,19px);color:var(--gold-2);line-height:1}
+.prin-strip span{
+  font-size:clamp(8.4px,.78vw,10px);font-weight:600;letter-spacing:.05em;
+  text-transform:uppercase;line-height:1.3;color:rgba(255,255,255,.8)
+}
+@media(max-width:720px){
+  .prin-strip ul{flex-wrap:wrap;gap:10px 0}
+  .prin-strip li{flex:0 0 33.333%}
+  .prin-strip li+li::before{display:none}
+}
+/* too short to hold the strip without colliding with the footer */
+@media(max-height:640px){.prin-strip{display:none}}
+@media(max-width:720px) and (max-height:820px){.prin-strip{display:none}}
 
 /* ---------- anthem control ---------- */
 .snd{
@@ -252,9 +290,9 @@ h1 .gold{display:block;color:var(--gold-2)}
 
       <span class="badge"><span class="dot"></span>Launching on Pakistan's 79th Independence Day</span>
 
-      <h1>Something is being<br><span class="gold rot" id="rot" aria-live="polite"><span class="w">built for Pakistan</span></span></h1>
+      <h1>Overseas Pakistanis commit<br><span class="gold">US$20 Billion</span><br><span class="tail">to Pakistan’s future, over the next three years</span></h1>
 
-      <p class="lead">A public registry where overseas Pakistanis record what they would invest, in which sectors, and on what terms. No funds are collected or transferred — the commitment itself is the point.</p>
+      <p class="lead">A public registry of conditional commitments. No funds are collected or transferred — the commitment itself is the point.</p>
 
       <div class="cd" id="cd" role="timer" aria-live="off" aria-label="Countdown to launch">
         <div class="cd-unit"><span class="cd-num" id="cdD">00</span><span class="cd-lab">Days</span></div>
@@ -264,6 +302,19 @@ h1 .gold{display:block;color:var(--gold-2)}
       </div>
       <div class="cd-rule" aria-hidden="true"></div>
       <p class="cd-when"><span class="fi fi-pk" aria-hidden="true"></span><i class="fa-solid fa-calendar-day" aria-hidden="true"></i>14 August 2026 · 00:00 ET · Pakistan Independence Day</p>
+
+      <section class="prin-strip" aria-label="Our commitment is connected to">
+        <h2>Our commitment to Pakistan is connected to</h2>
+        <ul>
+          <li><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i><span>Freedom of<br>judiciary</span></li>
+          <li><i class="fa-solid fa-check-to-slot" aria-hidden="true"></i><span>Democracy</span></li>
+          <li><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i><span>Human<br>rights</span></li>
+          <li><i class="fa-solid fa-bullhorn" aria-hidden="true"></i><span>Freedom of<br>speech</span></li>
+          <li><i class="fa-solid fa-gavel" aria-hidden="true"></i><span>Rule of law</span></li>
+          <li><i class="fa-solid fa-anchor" aria-hidden="true"></i><span>Political<br>stability</span></li>
+          <li><i class="fa-solid fa-shield-halved" aria-hidden="true"></i><span>Protection of<br>overseas investors</span></li>
+        </ul>
+      </section>
 
       <div class="live-msg" id="liveMsg">
         <h2 style="font-family:var(--head);font-size:clamp(22px,3vw,32px);letter-spacing:-.03em;margin:0">Pakistan Zindabad — we are live.</h2>
@@ -289,24 +340,6 @@ h1 .gold{display:block;color:var(--gold-2)}
 </footer>
 
 <script>
-/* ---- rotating headline ---- */
-(function(){
-  var box=document.getElementById('rot'); if(!box) return;
-  var lines=['built for Pakistan','built on trust','built to outlast politics','built by ten million of us'];
-  if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  var i=0;
-  setInterval(function(){
-    var cur=box.querySelector('.w'); if(!cur) return;
-    cur.classList.add('out');
-    setTimeout(function(){
-      i=(i+1)%lines.length;
-      var next=document.createElement('span');
-      next.className='w in'; next.textContent=lines[i];
-      box.replaceChild(next,cur);
-    },330);
-  },3800);
-})();
-
 /* ---- backdrop slideshow: crossfade through four Pakistani landmarks ---- */
 (function(){
   var s=[].slice.call(document.querySelectorAll('.photo .slide'));
