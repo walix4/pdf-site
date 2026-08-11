@@ -970,8 +970,17 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
 .form-card .field{margin-bottom:14px}
 .form-card textarea{min-height:76px}
 .form-card .row2{gap:16px}
-.preview{align-self:start}
-.pledge-grid{display:grid;grid-template-columns:1.05fr .75fr;gap:clamp(26px,4vw,52px);align-items:start}
+/* grid stretches the preview to the form's height; the photo takes the slack */
+.preview{align-self:stretch;display:flex}
+.pv-card{display:flex;flex-direction:column;width:100%}
+.pv-card .pledge-photo{flex:1 1 0;aspect-ratio:auto;min-height:96px;overflow:hidden}
+.pv-card .pledge-photo img{width:100%;height:100%;min-height:0;object-fit:cover;display:block}
+.pv-card .pv-rows{flex:none}
+@media(max-width:960px){
+  .preview{align-self:auto;display:block}
+  .pv-card .pledge-photo{flex:none;aspect-ratio:16/6.4;min-height:0}
+}
+.pledge-grid{align-items:stretch;display:grid;grid-template-columns:1.05fr .75fr;gap:clamp(26px,4vw,52px);align-items:start}
 @media(max-width:960px){.pledge-grid{grid-template-columns:1fr}}
 .form-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-2);padding:clamp(22px,3vw,34px)}
 .form-top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:8px}
