@@ -955,10 +955,11 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
 .wz-dot.on{background:var(--green-050);border-color:var(--green-2)}
 .wz-dot.on i{background:var(--green);color:#fff}
 .wz-dot.on span{color:var(--green)}
-.wz-dot.done{cursor:pointer}
-.wz-dot.done i{background:var(--gold);color:var(--pine-2)}
-.wz-dot.done span{color:var(--ink-2)}
+.wz-dot.step-done{cursor:pointer}
+.wz-dot.step-done i{background:var(--gold);color:var(--pine-2)}
+.wz-dot.step-done span{color:var(--ink-2)}
 @media(max-width:560px){.wz-dot span{display:none}.wz-dot{justify-content:center}}
+.wz-body{position:relative}
 .wz-pane{display:none}
 .wz-pane.on{display:block;animation:wzIn .4s var(--ease) both}
 @keyframes wzIn{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
@@ -973,10 +974,10 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
 /* grid stretches the preview to the form's height; the photo takes the slack */
 .preview{align-self:stretch;display:flex}
 .pv-card{display:flex;flex-direction:column;width:100%}
-.pv-card .pv-rows{flex:1 1 0;display:flex;flex-direction:column;justify-content:space-between}
+.pv-card .pv-rows{flex:1 1 auto}
 @media(max-width:960px){
   .preview{align-self:auto;display:block}
-  .pv-card .pv-rows{display:block}
+  .pv-card .pv-rows{flex:none}
 }
 .pledge-grid{align-items:stretch;display:grid;grid-template-columns:1.05fr .75fr;gap:clamp(26px,4vw,52px);align-items:start}
 @media(max-width:960px){.pledge-grid{grid-template-columns:1fr}}
@@ -1012,9 +1013,10 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
 .amt-chips button.on{background:var(--green);border-color:var(--green);color:#fff}
 .agree{display:flex;gap:13px;align-items:flex-start;background:var(--gold-050);border:1px solid var(--gold-2);border-radius:var(--r);padding:16px;margin-top:22px;font-size:13.8px;line-height:1.6}
 .agree input{width:19px;height:19px;margin-top:2px;accent-color:var(--green)}
-.form-foot{margin-top:22px}
-.form-foot .btn{width:100%;justify-content:center;font-size:16px;padding:16px}
-.form-legal{font-size:12.2px;color:var(--ink-3);text-align:center;margin-top:13px}
+.form-foot{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px}
+.form-foot .btn{flex:1 1 auto;justify-content:center;font-size:16px;padding:16px}
+.form-foot .wz-back{flex:0 0 auto;min-width:124px}
+.form-legal{flex:1 1 100%;font-size:12.2px;color:var(--ink-3);text-align:center;margin-top:3px}
 
 /* preview card */
 .preview{position:sticky;top:110px}
@@ -1799,6 +1801,7 @@ function renderSectorState(){
   var sf=$('#sectorField');
   if(selected.length){sf.classList.remove('bad');sf.classList.add('good');}else{sf.classList.remove('good');}
   updatePreview(); updateProgress();
+  if(typeof wzRelock==='function') wzRelock();
 }
 function toggleSector(n){
   var i=selected.indexOf(n);
@@ -1995,7 +1998,7 @@ function wzShow(i){
   $$('.wz-pane').forEach(function(p,n){p.classList.toggle('on',n===wzAt);});
   $$('.wz-dot').forEach(function(d,n){
     d.classList.toggle('on',n===wzAt);
-    d.classList.toggle('done',n<wzAt);
+    d.classList.toggle('step-done',n<wzAt);
   });
   wzCard.classList.remove('s0','s1','s2'); wzCard.classList.add('s'+wzAt);
 }
@@ -2021,6 +2024,25 @@ $('#wzBack').addEventListener('click',function(){
 $$('.wz-dot').forEach(function(d,n){
   d.addEventListener('click',function(){ if(n<wzAt) wzShow(n); });
 });
+/* all three steps share one height, so the card never resizes mid-flow */
+function wzLock(){
+  var body=$('.wz-body'); if(!body) return;
+  if(matchMedia('(max-width:960px)').matches){ body.style.minHeight=''; return; }
+  var keep=wzAt, tall=0;
+  $$('.wz-pane').forEach(function(p){
+    var was=p.className;
+    p.style.cssText='display:block;position:absolute;visibility:hidden;left:0;right:0;top:0';
+    tall=Math.max(tall,p.offsetHeight);
+    p.style.cssText=''; p.className=was;
+  });
+  wzShow(keep);
+  body.style.minHeight=tall+'px';
+}
+var _wzL;
+function wzRelock(){clearTimeout(_wzL);_wzL=setTimeout(wzLock,60);}
+window.addEventListener('load',wzLock);
+window.addEventListener('resize',function(){clearTimeout(_wzL);_wzL=setTimeout(wzLock,150);});
+
 wzShow(0);
 
 $('#pledgeForm').addEventListener('submit',function(e){
