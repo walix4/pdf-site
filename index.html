@@ -912,6 +912,11 @@ section.block .wrap{padding-top:clamp(60px,8vw,104px);padding-bottom:clamp(60px,
    PLEDGE FORM
    ============================================================ */
 .pledge-band{background:linear-gradient(180deg,#fff, var(--paper) 30%)}
+.form-card .field{margin-bottom:14px}
+.form-card textarea{min-height:76px}
+.form-card .row2{gap:16px}
+.preview{position:sticky;top:96px;align-self:start}
+@media(max-width:960px){.preview{position:static}}
 .pledge-grid{display:grid;grid-template-columns:1.05fr .75fr;gap:clamp(26px,4vw,52px);align-items:start}
 @media(max-width:960px){.pledge-grid{grid-template-columns:1fr}}
 .form-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--sh-2);padding:clamp(22px,3vw,34px)}
@@ -1329,10 +1334,16 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
             <div class="err">Enter your city.</div>
           </div>
         </div>
-        <div class="field">
-          <label for="fPhone">WhatsApp or phone <small>— optional</small></label>
-          <input id="fPhone" type="tel" autocomplete="tel">
-          <div class="hint">Used only to verify a large pledge. Never published and never sold.</div>
+        <div class="row2">
+          <div class="field">
+            <label for="fPhone">WhatsApp or phone <small>— optional</small></label>
+            <input id="fPhone" type="tel" autocomplete="tel">
+            <div class="hint">Only to verify a large pledge. Never published or sold.</div>
+          </div>
+          <div class="field">
+            <label for="fProfession">Profession <small>— optional</small></label>
+            <input id="fProfession" type="text" autocomplete="organization-title" placeholder="e.g. Physician">
+          </div>
         </div>
         <div class="field" data-req id="sectorField">
           <label>Investment sectors <small>— select above, or add from the list below</small></label>
@@ -1348,10 +1359,6 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
         </div>
         <div class="row2">
           <div class="field">
-            <label for="fProfession">Profession <small>— optional</small></label>
-            <input id="fProfession" type="text" autocomplete="organization-title" placeholder="e.g. Physician, Software Engineer">
-          </div>
-          <div class="field">
             <label for="fTimeline">Timeline <small>— optional</small></label>
             <select id="fTimeline">
               <option value="">Select a timeline</option>
@@ -1362,13 +1369,15 @@ footer.site .wrap{padding-top:56px;padding-bottom:34px}
             </select>
           </div>
         </div>
-        <div class="field">
-          <label for="fSkills">Skills or expertise you would bring <small>— optional</small></label>
-          <textarea id="fSkills"></textarea>
-        </div>
-        <div class="field">
-          <label for="fComments">Comments <small>— optional</small></label>
-          <textarea id="fComments" placeholder="Anything you would want the registry to record alongside your commitment."></textarea>
+        <div class="row2">
+          <div class="field">
+            <label for="fSkills">Skills you would bring <small>— optional</small></label>
+            <textarea id="fSkills"></textarea>
+          </div>
+          <div class="field">
+            <label for="fComments">Comments <small>— optional</small></label>
+            <textarea id="fComments" placeholder="Anything to record alongside your commitment."></textarea>
+          </div>
         </div>
         <input type="hidden" id="fCommitList">
         <label class="agree">
